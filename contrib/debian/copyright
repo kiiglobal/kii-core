@@ -1,7 +1,7 @@
 Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: KII Core
 Upstream-Contact: KII Core Group, Inc https://kii.global/
-Source: https://github.com/kiiglobal
+Source: https://github.com/kiiglobal/kii-core
 
 Files: *
 Copyright: 2009-2017, Bitcoin Core Developers,

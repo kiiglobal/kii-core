@@ -12,43 +12,7 @@ This release is mandatory for all nodes.
 
 Please report bugs using the issue tracker at github:
 
-  <https://github.com/kiiglobal/kii/issues>
-
-
-Upgrading and downgrading
-=========================
-
-How to Upgrade
---------------
-
-If you are running an older version, shut it down. Wait until it has completely
-shut down (which might take a few minutes for older versions), then run the
-installer (on Windows) or just copy over /Applications/KII-Qt (on Mac) or
-kiid/kii-qt (on Linux). If you upgrade after DIP0003 activation and you were
-using version < 0.13 you will have to reindex (start with -reindex-chainstate
-or -reindex) to make sure your wallet has all the new data synced. Upgrading
-from version 0.13 should not require any additional actions.
-
-When upgrading from a version prior to 0.14.0.3, the
-first startup of KII Core will run a migration process which can take a few
-minutes to finish. After the migration, a downgrade to an older version is only
-possible with a reindex (or reindex-chainstate).
-
-Downgrade warning
------------------
-
-### Downgrade to a version < 0.14.0.3
-
-Downgrading to a version older than 0.14.0.3 is no longer supported due to
-changes in the "evodb" database format. If you need to use an older version,
-you must either reindex or re-sync the whole chain.
-
-### Downgrade of masternodes to < 0.17.0.3
-
-Starting with the 0.16 release, masternodes verify the protocol version of other
-masternodes. This results in PoSe punishment/banning for outdated masternodes,
-so downgrading even prior to the activation of the introduced hard-fork changes
-is not recommended.
+  <https://github.com/kiiglobal/kii-core/issues>
 
 Notable changes
 ===============
@@ -59,7 +23,7 @@ Several opcodes have been reactivated/introduced to broaden the functionality
 of the system and enable developers to build new solutions. These opcodes are
 a combination of previously disabled ones that have been found to be safe and
 new ones previously introduced by Bitcoin Cash. Details of the opcodes are
-provided in [DIP-0020](https://github.com/kiiglobal).
+provided in DIP-0020.
 
 These opcodes are activated via a BIP9 style hard fork that will begin
 signalling on July 1st using bit 6. Any nodes that do not upgrade by the time
@@ -71,7 +35,7 @@ Quorum resilience has been improved by enabling masternodes to request DKG data
 from other quorum members. This allows KII Platform to obtain required
 information while also making it possible for corrupted masternodes to recover
 the DKG data they need to participate in quorums they are part of. Details are
-provided in [DIP-0021](https://github.com/kiipay/dips/blob/master/dip-0021.md).
+provided in DIP-0021.
 
 Platform support
 ----------------
@@ -102,8 +66,7 @@ Network performance improvements
 This version of KII Core includes multiple optimizations to the network and
 p2p message handling code.
 
-We reintroduced [Intra-Quorum Connections](https://github.com/kiipay/dips/blob/master/dip-0006.md#intra-quorum-communication)
-which were temporary disabled with the introduction of
+We reintroduced Intra-Quorum Connections which were temporary disabled with the introduction of
 `SPORK_21_QUORUM_ALL_CONNECTED`. This should make communications for masternodes
 belonging to the same quorum more robust and improve network connectivity in
 general.
@@ -143,8 +106,7 @@ be disabled.
 
 Statoshi backport
 ------------------
-This version includes a [backport](https://github.com/kiipay/kii/pull/2515)
-of [Statoshi functionality](https://github.com/jlopp/statoshi) which allows
+This version includes a backport of Statoshi functionality which allows
 nodes to emit metrics to a StatsD instance. This can help node operators to
 learn more about node performance and network state in general. We added
 several command line options to give node operators more control, see options
@@ -249,44 +211,9 @@ renamed to replace “PrivateSend” with “CoinJoin” (e.g. `setprivatesendro
 Please check `Help -> Command-line options` in Qt wallet or `kiid --help` for
 more information.
 
-Backports from Bitcoin Core 0.17
---------------------------------
-
-This release also introduces over 450 updates from Bitcoin v0.17 as well as
-some updates from Bitcoin v0.18 and more recent versions. This includes a
-number of performance improvements, dynamic loading of wallets via RPC, support
-for signalling pruned nodes, and a number of other updates that will benefit
-KII users. Bitcoin changes that do not align with KII’s product needs, such
-as SegWit and RBF, are excluded from our backporting. For additional detail on
-what’s included in Bitcoin v0.17, please refer to [their release notes](https://github.com/bitcoin/bitcoin/blob/master/doc/release-notes/release-notes-0.17.0.md).
-
 Miscellaneous
 -------------
 A lot of refactoring, code cleanups and other small fixes were done in this release.
-
-1.0.1.2 Change log
-===================
-
-See detailed [set of changes](https://github.com/kiipay/kii/compare/v0.16.1.1...kiipay:v0.17.0.3).
-
-Credits
-=======
-
-Thanks to everyone who directly contributed to this release:
-
-- 10xcryptodev
-- dustinface (xdustinface)
-- Kittywhiskers Van Gogh (kittywhiskers)
-- Kolby Moroz Liebl (KolbyML)
-- Konstantin Shuplenkov (shuplenkov)
-- Minh20
-- PastaPastaPasta
-- strophy
-- thephez
-- tomthoros
-- UdjinM6
-
-As well as everyone that submitted issues and reviewed pull requests.
 
 Older releases
 ==============

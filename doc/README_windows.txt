@@ -17,7 +17,3 @@ KII Core is the original KII client and it builds the backbone of the network.
 However, it downloads and stores the entire history of KII transactions;
 depending on the speed of your computer and network connection, the synchronization
 process can take anywhere from a few hours to a day or more.
-
-See the KII documentation at:
-  https://kii.global/
-for more help and information.

@@ -22,14 +22,6 @@ Unpack the files into a directory, and then run kii-qt.exe.
 
 Drag KII-Qt to your applications folder, and then run KII-Qt.
 
-### Need Help?
-
-* See the [KII documentation](https://kii.global)
-for help and more information.
-* See the [KII Developer Documentation](https://github.com/kiiglobal/) 
-for technical specifications and implementation details.
-* Ask for help on the [KII Forum](https://kii.global)
-
 Building
 ---------------------
 The following are developer notes on how to build KII Core on your native platform. They are not complete guides, but include notes on the necessary libraries, compile flags, etc.
@@ -56,10 +48,6 @@ The KII Core repo's [root README](/README.md) contains relevant information on t
 - [BIPS](bips.md)
 - [Dnsseed Policy](dnsseed-policy.md)
 - [Benchmarking](benchmarking.md)
-
-### Resources
-* Discuss on the [KII Forum](https://kii.global/), in the Development & Technical Discussion board.
-
 
 ### Miscellaneous
 - [Assets Attribution](assets-attribution.md)

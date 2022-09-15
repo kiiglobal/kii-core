@@ -23,11 +23,6 @@ Build for your system first. Be sure to enable wallet, utils and daemon when you
 
 #### Dependencies
 
-Many KII specific tests require kii_hash. To install it:
-
-- Clone the repo `git clone https://github.com/kiiglobal/`
-- Install kii_hash `cd kii_hash && python3 setup.py install`
-
 The ZMQ functional test requires a python ZMQ library. To install it:
 
 - on Unix, run `sudo apt-get install python3-zmq`

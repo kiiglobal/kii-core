@@ -314,7 +314,7 @@ Clone the git repositories for KII Core and Gitian.
 
 ```bash
 git clone https://github.com/devrandom/gitian-builder.git
-git clone https://github.com/kiiglobal/kii
+git clone https://github.com/kiiglobal/kii-core.git
 ```
 
 Setting up the Gitian image
@@ -380,7 +380,7 @@ Output from `gbuild` will look something like
     remote: Total 57959 (delta 0), reused 0 (delta 0), pack-reused 57958
     Receiving objects: 100% (57959/57959), 53.76 MiB | 484.00 KiB/s, done.
     Resolving deltas: 100% (41590/41590), done.
-    From https://github.com/kiiglobal/kii
+    From https://github.com/kiiglobal/kii-core
     ... (new tags, new branch etc)
     --- Building for bionic amd64 ---
     Stopping target if it is up
@@ -460,7 +460,7 @@ cd /some/root/path/
 BTCPATH=/some/root/path/kii
 SIGPATH=/some/root/path/kii-detached-sigs
 
-./bin/gbuild --url kii=${BTCPATH},signature=${SIGPATH} ../kii/contrib/gitian-descriptors/gitian-win-signer.yml
+./bin/gbuild --url kii=${BTCPATH},signature=${SIGPATH} ../kii-core/contrib/gitian-descriptors/gitian-win-signer.yml
 ```
 
 Signing externally
@@ -480,13 +480,4 @@ in `gitian.sigs` to your signing machine and do
     gpg --detach-sign ${VERSION}-osx-unsigned/${SIGNER}/kii-osx-build.assert
 ```
 
-This will create the `.sig` files that can be committed together with the `.assert` files to assert your
-Gitian build.
-
-Uploading signatures (not yet implemented)
----------------------
-
-In the future it will be possible to push your signatures (both the `.assert` and `.assert.sig` files) to the
-[kii/gitian.sigs](https://github.com/kiiglobal/) repository, or if that's not possible to create a pull
-request.
-There will be an official announcement when this repository is online.
+This will create the `.sig` files that can be committed together with the `.assert` files to assert your Gitian build.
