@@ -17,6 +17,8 @@ BOOST_FIXTURE_TEST_SUITE(merkleblock_tests, BasicTestingSetup)
  */
 BOOST_AUTO_TEST_CASE(merkleblock_construct_from_txids_found)
 {
+    std::cout << "Entering merkleblock_construct_from_txids_found test" << std::endl;
+
     CBlock block = getBlock13b8a();
 
     std::set<uint256> txids;
@@ -58,6 +60,8 @@ BOOST_AUTO_TEST_CASE(merkleblock_construct_from_txids_found)
  */
 BOOST_AUTO_TEST_CASE(merkleblock_construct_from_txids_not_found)
 {
+    std::cout << "Entering merkleblock_construct_from_txids_not_found test" << std::endl;
+
     CBlock block = getBlock13b8a();
 
     std::set<uint256> txids2;

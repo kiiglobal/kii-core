@@ -63,6 +63,8 @@ public:
 
 BOOST_AUTO_TEST_CASE(sizes)
 {
+    std::cout << "Entering sizes test" << std::endl;
+
     BOOST_CHECK_EQUAL(sizeof(char), GetSerializeSize(char(0), 0));
     BOOST_CHECK_EQUAL(sizeof(int8_t), GetSerializeSize(int8_t(0), 0));
     BOOST_CHECK_EQUAL(sizeof(uint8_t), GetSerializeSize(uint8_t(0), 0));
@@ -94,6 +96,8 @@ BOOST_AUTO_TEST_CASE(sizes)
 
 BOOST_AUTO_TEST_CASE(floats_conversion)
 {
+    std::cout << "Entering floats_conversion test" << std::endl;
+
     // Choose values that map unambiguously to binary floating point to avoid
     // rounding issues at the compiler side.
     BOOST_CHECK_EQUAL(ser_uint32_to_float(0x00000000), 0.0F);
@@ -113,6 +117,8 @@ BOOST_AUTO_TEST_CASE(floats_conversion)
 
 BOOST_AUTO_TEST_CASE(doubles_conversion)
 {
+    std::cout << "Entering doubles_conversion test" << std::endl;
+
     // Choose values that map unambiguously to binary floating point to avoid
     // rounding issues at the compiler side.
     BOOST_CHECK_EQUAL(ser_uint64_to_double(0x0000000000000000ULL), 0.0);
@@ -142,6 +148,8 @@ Python code to generate the below hashes:
 */
 BOOST_AUTO_TEST_CASE(floats)
 {
+    std::cout << "Entering floats test" << std::endl;
+
     CDataStream ss(SER_DISK, 0);
     // encode
     for (int i = 0; i < 1000; i++) {
@@ -159,6 +167,8 @@ BOOST_AUTO_TEST_CASE(floats)
 
 BOOST_AUTO_TEST_CASE(doubles)
 {
+    std::cout << "Entering doubles test" << std::endl;
+
     CDataStream ss(SER_DISK, 0);
     // encode
     for (int i = 0; i < 1000; i++) {
@@ -176,6 +186,8 @@ BOOST_AUTO_TEST_CASE(doubles)
 
 BOOST_AUTO_TEST_CASE(varints)
 {
+    std::cout << "Entering varints test" << std::endl;
+
     // encode
 
     CDataStream ss(SER_DISK, 0);
@@ -208,6 +220,8 @@ BOOST_AUTO_TEST_CASE(varints)
 
 BOOST_AUTO_TEST_CASE(varints_bitpatterns)
 {
+    std::cout << "Entering varints_bitpatterns test" << std::endl;
+
     CDataStream ss(SER_DISK, 0);
     ss << VARINT(0, VarIntMode::NONNEGATIVE_SIGNED); BOOST_CHECK_EQUAL(HexStr(ss), "00"); ss.clear();
     ss << VARINT(0x7f, VarIntMode::NONNEGATIVE_SIGNED); BOOST_CHECK_EQUAL(HexStr(ss), "7f"); ss.clear();
@@ -229,6 +243,8 @@ BOOST_AUTO_TEST_CASE(varints_bitpatterns)
 
 BOOST_AUTO_TEST_CASE(compactsize)
 {
+    std::cout << "Entering compactsize test" << std::endl;
+
     CDataStream ss(SER_DISK, 0);
     std::vector<char>::size_type i, j;
 
@@ -260,6 +276,8 @@ static bool isCanonicalException(const std::ios_base::failure& ex)
 
 BOOST_AUTO_TEST_CASE(noncanonical)
 {
+    std::cout << "Entering noncanonical test" << std::endl;
+
     // Write some non-canonical CompactSize encodings, and
     // make sure an exception is thrown when read back.
     CDataStream ss(SER_DISK, 0);
@@ -297,6 +315,8 @@ BOOST_AUTO_TEST_CASE(noncanonical)
 
 BOOST_AUTO_TEST_CASE(insert_delete)
 {
+    std::cout << "Entering insert_delete test" << std::endl;
+
     // Test inserting/deleting bytes.
     CDataStream ss(SER_DISK, 0);
     BOOST_CHECK_EQUAL(ss.size(), 0);
@@ -377,6 +397,8 @@ struct new_version
 
 BOOST_AUTO_TEST_CASE(check_backward_compatibility)
 {
+    std::cout << "Entering check_backward_compatibility test" << std::endl;
+
     CDataStream ss(SER_DISK, 0);
     old_version old_src({5});
     ss << old_src;
@@ -394,6 +416,8 @@ BOOST_AUTO_TEST_CASE(check_backward_compatibility)
 
 BOOST_AUTO_TEST_CASE(class_methods)
 {
+    std::cout << "Entering class_methods test" << std::endl;
+
     int intval(100);
     bool boolval(true);
     std::string stringval("testing");

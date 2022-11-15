@@ -22,6 +22,8 @@ BOOST_FIXTURE_TEST_SUITE(script_standard_tests, BasicTestingSetup)
 
 BOOST_AUTO_TEST_CASE(script_standard_Solver_success)
 {
+    std::cout << "Entering script_standard_Solver_success test" << std::endl;
+
     CKey keys[3];
     CPubKey pubkeys[3];
     for (int i = 0; i < 3; i++) {
@@ -106,6 +108,8 @@ BOOST_AUTO_TEST_CASE(script_standard_Solver_success)
 
 BOOST_AUTO_TEST_CASE(script_standard_Solver_failure)
 {
+    std::cout << "Entering script_standard_Solver_failure test" << std::endl;
+
     CKey key;
     CPubKey pubkey;
     key.MakeNewKey(true);
@@ -158,6 +162,8 @@ BOOST_AUTO_TEST_CASE(script_standard_Solver_failure)
 
 BOOST_AUTO_TEST_CASE(script_standard_ExtractDestination)
 {
+    std::cout << "Entering script_standard_ExtractDestination test" << std::endl;
+
     CKey key;
     CPubKey pubkey;
     key.MakeNewKey(true);
@@ -201,6 +207,8 @@ BOOST_AUTO_TEST_CASE(script_standard_ExtractDestination)
 
 BOOST_AUTO_TEST_CASE(script_standard_ExtractDestinations)
 {
+    std::cout << "Entering script_standard_ExtractDestinations test" << std::endl;
+
     CKey keys[3];
     CPubKey pubkeys[3];
     for (int i = 0; i < 3; i++) {
@@ -267,6 +275,8 @@ BOOST_AUTO_TEST_CASE(script_standard_ExtractDestinations)
 
 BOOST_AUTO_TEST_CASE(script_standard_GetScriptFor_)
 {
+    std::cout << "Entering script_standard_GetScriptFor_ test" << std::endl;
+
     CKey keys[3];
     CPubKey pubkeys[3];
     for (int i = 0; i < 3; i++) {
@@ -313,6 +323,8 @@ BOOST_AUTO_TEST_CASE(script_standard_GetScriptFor_)
 
 BOOST_AUTO_TEST_CASE(script_standard_IsMine)
 {
+    std::cout << "Entering script_standard_IsMine test" << std::endl;
+
     CKey keys[2];
     CPubKey pubkeys[2];
     for (int i = 0; i < 2; i++) {

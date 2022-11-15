@@ -12,6 +12,8 @@ BOOST_FIXTURE_TEST_SUITE(bls_tests, BasicTestingSetup)
 
 BOOST_AUTO_TEST_CASE(bls_sethexstr_tests)
 {
+    std::cout << "Entering bls_sethexstr_tests test" << std::endl;
+
     CBLSSecretKey sk;
     std::string strValidSecret = "000102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f";
     // Note: invalid string passed to SetHexStr() should cause it to fail and reset key internal data
@@ -30,6 +32,8 @@ BOOST_AUTO_TEST_CASE(bls_sethexstr_tests)
 
 BOOST_AUTO_TEST_CASE(bls_sig_tests)
 {
+    std::cout << "Entering bls_sig_tests test" << std::endl;
+
     CBLSSecretKey sk1, sk2;
     sk1.MakeNewKey();
     sk2.MakeNewKey();
@@ -113,6 +117,8 @@ static void Verify(std::vector<Message>& vec)
 
 BOOST_AUTO_TEST_CASE(batch_verifier_tests)
 {
+    std::cout << "Entering batch_verifier_tests test" << std::endl;
+
     std::vector<Message> msgs;
 
     // distinct messages from distinct sources

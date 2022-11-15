@@ -40,6 +40,8 @@ BOOST_FIXTURE_TEST_SUITE(raii_event_tests, BasicTestingSetup)
 
 BOOST_AUTO_TEST_CASE(raii_event_creation)
 {
+    std::cout << "Entering raii_event_creation test" << std::endl;
+
     event_set_mem_functions(tag_malloc, realloc, tag_free);
 
     void* base_ptr = nullptr;
@@ -69,6 +71,8 @@ BOOST_AUTO_TEST_CASE(raii_event_creation)
 
 BOOST_AUTO_TEST_CASE(raii_event_order)
 {
+    std::cout << "Entering raii_event_order test" << std::endl;
+
     event_set_mem_functions(tag_malloc, realloc, tag_free);
 
     void* base_ptr = nullptr;

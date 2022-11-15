@@ -14,6 +14,8 @@ BOOST_FIXTURE_TEST_SUITE(evo_simplifiedmns_tests, BasicTestingSetup)
 
 BOOST_AUTO_TEST_CASE(simplifiedmns_merkleroots)
 {
+    std::cout << "Entering simplifiedmns_merkleroots test" << std::endl;
+
     std::vector<CSimplifiedMNListEntry> entries;
     for (size_t i = 0; i < 15; i++) {
         CSimplifiedMNListEntry smle;

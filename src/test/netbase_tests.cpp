@@ -37,6 +37,8 @@ static CNetAddr CreateInternal(const char* host)
 
 BOOST_AUTO_TEST_CASE(netbase_networks)
 {
+    std::cout << "Entering netbase_networks test" << std::endl;
+
     BOOST_CHECK(ResolveIP("127.0.0.1").GetNetwork()                              == NET_UNROUTABLE);
     BOOST_CHECK(ResolveIP("::1").GetNetwork()                                    == NET_UNROUTABLE);
     BOOST_CHECK(ResolveIP("8.8.8.8").GetNetwork()                                == NET_IPV4);
@@ -48,6 +50,7 @@ BOOST_AUTO_TEST_CASE(netbase_networks)
 
 BOOST_AUTO_TEST_CASE(netbase_properties)
 {
+    std::cout << "Entering netbase_properties test" << std::endl;
 
     BOOST_CHECK(ResolveIP("127.0.0.1").IsIPv4());
     BOOST_CHECK(ResolveIP("::FFFF:192.168.1.1").IsIPv4());
@@ -85,6 +88,8 @@ bool static TestSplitHost(std::string test, std::string host, int port)
 
 BOOST_AUTO_TEST_CASE(netbase_splithost)
 {
+    std::cout << "Entering netbase_splithost test" << std::endl;
+
     BOOST_CHECK(TestSplitHost("www.bitcoin.org", "www.bitcoin.org", -1));
     BOOST_CHECK(TestSplitHost("[www.bitcoin.org]", "www.bitcoin.org", -1));
     BOOST_CHECK(TestSplitHost("www.bitcoin.org:80", "www.bitcoin.org", 80));
@@ -110,6 +115,8 @@ bool static TestParse(std::string src, std::string canon)
 
 BOOST_AUTO_TEST_CASE(netbase_lookupnumeric)
 {
+    std::cout << "Entering netbase_lookupnumeric test" << std::endl;
+
     BOOST_CHECK(TestParse("127.0.0.1", "127.0.0.1:65535"));
     BOOST_CHECK(TestParse("127.0.0.1:5816", "127.0.0.1:5816"));
     BOOST_CHECK(TestParse("::ffff:127.0.0.1", "127.0.0.1:65535"));
@@ -126,6 +133,7 @@ BOOST_AUTO_TEST_CASE(netbase_lookupnumeric)
 
 BOOST_AUTO_TEST_CASE(onioncat_test)
 {
+    std::cout << "Entering onioncat_test test" << std::endl;
 
     // values from https://web.archive.org/web/20121122003543/http://www.cypherpunk.at/onioncat/wiki/OnionCat
     CNetAddr addr1(ResolveIP("5wyqrzbvrdsumnok.onion"));
@@ -139,6 +147,8 @@ BOOST_AUTO_TEST_CASE(onioncat_test)
 
 BOOST_AUTO_TEST_CASE(embedded_test)
 {
+    std::cout << "Entering embedded_test test" << std::endl;
+
     CNetAddr addr1(ResolveIP("1.2.3.4"));
     CNetAddr addr2(ResolveIP("::FFFF:0102:0304"));
     BOOST_CHECK(addr2.IsIPv4());
@@ -147,6 +157,7 @@ BOOST_AUTO_TEST_CASE(embedded_test)
 
 BOOST_AUTO_TEST_CASE(subnet_test)
 {
+   std::cout << "Entering subnet_test test" << std::endl;
 
     BOOST_CHECK(ResolveSubNet("1.2.3.0/24") == ResolveSubNet("1.2.3.0/255.255.255.0"));
     BOOST_CHECK(ResolveSubNet("1.2.3.0/24") != ResolveSubNet("1.2.4.0/255.255.255.0"));
@@ -200,14 +211,14 @@ BOOST_AUTO_TEST_CASE(subnet_test)
     CSubNet subnet = CSubNet(ResolveIP("1.2.3.4"), 32);
     BOOST_CHECK_EQUAL(subnet.ToString(), "1.2.3.4/32");
     subnet = CSubNet(ResolveIP("1.2.3.4"), 8);
-    BOOST_CHECK_EQUAL(subnet.ToString(), "1.0.1.0/8");
+    BOOST_CHECK_EQUAL(subnet.ToString(), "1.0.0.0/8");
     subnet = CSubNet(ResolveIP("1.2.3.4"), 0);
     BOOST_CHECK_EQUAL(subnet.ToString(), "0.0.0.0/0");
 
     subnet = CSubNet(ResolveIP("1.2.3.4"), ResolveIP("255.255.255.255"));
     BOOST_CHECK_EQUAL(subnet.ToString(), "1.2.3.4/32");
     subnet = CSubNet(ResolveIP("1.2.3.4"), ResolveIP("255.0.0.0"));
-    BOOST_CHECK_EQUAL(subnet.ToString(), "1.0.1.0/8");
+    BOOST_CHECK_EQUAL(subnet.ToString(), "1.0.0.0/8");
     subnet = CSubNet(ResolveIP("1.2.3.4"), ResolveIP("0.0.0.0"));
     BOOST_CHECK_EQUAL(subnet.ToString(), "0.0.0.0/0");
 
@@ -253,19 +264,19 @@ BOOST_AUTO_TEST_CASE(subnet_test)
     subnet = ResolveSubNet("1.2.3.4/255.254.0.0");
     BOOST_CHECK_EQUAL(subnet.ToString(), "1.2.0.0/15");
     subnet = ResolveSubNet("1.2.3.4/255.252.0.0");
-    BOOST_CHECK_EQUAL(subnet.ToString(), "1.0.1.0/14");
+    BOOST_CHECK_EQUAL(subnet.ToString(), "1.0.0.0/14");
     subnet = ResolveSubNet("1.2.3.4/255.248.0.0");
-    BOOST_CHECK_EQUAL(subnet.ToString(), "1.0.1.0/13");
+    BOOST_CHECK_EQUAL(subnet.ToString(), "1.0.0.0/13");
     subnet = ResolveSubNet("1.2.3.4/255.240.0.0");
-    BOOST_CHECK_EQUAL(subnet.ToString(), "1.0.1.0/12");
+    BOOST_CHECK_EQUAL(subnet.ToString(), "1.0.0.0/12");
     subnet = ResolveSubNet("1.2.3.4/255.224.0.0");
-    BOOST_CHECK_EQUAL(subnet.ToString(), "1.0.1.0/11");
+    BOOST_CHECK_EQUAL(subnet.ToString(), "1.0.0.0/11");
     subnet = ResolveSubNet("1.2.3.4/255.192.0.0");
-    BOOST_CHECK_EQUAL(subnet.ToString(), "1.0.1.0/10");
+    BOOST_CHECK_EQUAL(subnet.ToString(), "1.0.0.0/10");
     subnet = ResolveSubNet("1.2.3.4/255.128.0.0");
-    BOOST_CHECK_EQUAL(subnet.ToString(), "1.0.1.0/9");
+    BOOST_CHECK_EQUAL(subnet.ToString(), "1.0.0.0/9");
     subnet = ResolveSubNet("1.2.3.4/255.0.0.0");
-    BOOST_CHECK_EQUAL(subnet.ToString(), "1.0.1.0/8");
+    BOOST_CHECK_EQUAL(subnet.ToString(), "1.0.0.0/8");
     subnet = ResolveSubNet("1.2.3.4/254.0.0.0");
     BOOST_CHECK_EQUAL(subnet.ToString(), "0.0.0.0/7");
     subnet = ResolveSubNet("1.2.3.4/252.0.0.0");
@@ -298,6 +309,7 @@ BOOST_AUTO_TEST_CASE(subnet_test)
 
 BOOST_AUTO_TEST_CASE(netbase_getgroup)
 {
+    std::cout << "Entering netbase_getgroup test" << std::endl;
 
     BOOST_CHECK(ResolveIP("127.0.0.1").GetGroup() == std::vector<unsigned char>({0})); // Local -> !Routable()
     BOOST_CHECK(ResolveIP("257.0.0.1").GetGroup() == std::vector<unsigned char>({0})); // !Valid -> !Routable()

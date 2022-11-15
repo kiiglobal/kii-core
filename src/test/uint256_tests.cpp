@@ -74,6 +74,8 @@ inline uint160 uint160S(const std::string& str)
 
 BOOST_AUTO_TEST_CASE( basics ) // constructors, equality, inequality
 {
+    std::cout << "Entering basics test" << std::endl;
+
     BOOST_CHECK(1 == 0+1);
     // constructor uint256(vector<char>):
     BOOST_CHECK(R1L.ToString() == ArrayToString(R1Array,32));
@@ -126,6 +128,8 @@ BOOST_AUTO_TEST_CASE( basics ) // constructors, equality, inequality
 
 BOOST_AUTO_TEST_CASE( comparison ) // <= >= < >
 {
+    std::cout << "Entering comparison test" << std::endl;
+
     uint256 LastL;
     for (int i = 255; i >= 0; --i) {
         uint256 TmpL;
@@ -158,6 +162,8 @@ BOOST_AUTO_TEST_CASE( comparison ) // <= >= < >
 
 BOOST_AUTO_TEST_CASE( methods ) // GetHex SetHex begin() end() size() GetLow64 GetSerializeSize, Serialize, Unserialize
 {
+    std::cout << "Entering methods test" << std::endl;
+
     BOOST_CHECK(R1L.GetHex() == R1L.ToString());
     BOOST_CHECK(R2L.GetHex() == R2L.ToString());
     BOOST_CHECK(OneL.GetHex() == OneL.ToString());
@@ -252,6 +258,8 @@ BOOST_AUTO_TEST_CASE( methods ) // GetHex SetHex begin() end() size() GetLow64 G
 
 BOOST_AUTO_TEST_CASE( conversion )
 {
+    std::cout << "Entering conversion test" << std::endl;
+
     BOOST_CHECK(ArithToUint256(UintToArith256(ZeroL)) == ZeroL);
     BOOST_CHECK(ArithToUint256(UintToArith256(OneL)) == OneL);
     BOOST_CHECK(ArithToUint256(UintToArith256(R1L)) == R1L);
@@ -268,6 +276,8 @@ BOOST_AUTO_TEST_CASE( conversion )
 
 BOOST_AUTO_TEST_CASE( operator_with_self )
 {
+    std::cout << "Entering operator_with_self test" << std::endl;
+
     arith_uint256 v = UintToArith256(uint256S("02"));
     v *= v;
     BOOST_CHECK(v == UintToArith256(uint256S("04")));

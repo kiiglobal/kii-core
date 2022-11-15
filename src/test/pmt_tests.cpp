@@ -30,6 +30,8 @@ BOOST_FIXTURE_TEST_SUITE(pmt_tests, BasicTestingSetup)
 
 BOOST_AUTO_TEST_CASE(pmt_test1)
 {
+    std::cout << "Entering pmt_test1 test" << std::endl;
+
     SeedInsecureRand(false);
     static const unsigned int nTxCounts[] = {1, 4, 7, 17, 56, 100, 127, 256, 312, 513, 1000, 4095};
 
@@ -108,6 +110,8 @@ BOOST_AUTO_TEST_CASE(pmt_test1)
 
 BOOST_AUTO_TEST_CASE(pmt_malleability)
 {
+    std::cout << "Entering pmt_malleability test" << std::endl;
+
     std::vector<uint256> vTxid = {
         ArithToUint256(1), ArithToUint256(2),
         ArithToUint256(3), ArithToUint256(4),

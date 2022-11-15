@@ -50,6 +50,8 @@ BOOST_FIXTURE_TEST_SUITE(script_p2sh_tests, BasicTestingSetup)
 
 BOOST_AUTO_TEST_CASE(sign)
 {
+    std::cout << "Entering sign test" << std::endl;
+
     LOCK(cs_main);
     // Pay-to-script-hash looks like this:
     // scriptSig:    <sig> <sig...> <serialized_script>
@@ -124,6 +126,8 @@ BOOST_AUTO_TEST_CASE(sign)
 
 BOOST_AUTO_TEST_CASE(norecurse)
 {
+    std::cout << "Entering norecurse test" << std::endl;
+
     ScriptError err;
     // Make sure only the outer pay-to-script-hash does the
     // extra-validation thing:
@@ -151,6 +155,8 @@ BOOST_AUTO_TEST_CASE(norecurse)
 
 BOOST_AUTO_TEST_CASE(set)
 {
+    std::cout << "Entering set test" << std::endl;
+
     LOCK(cs_main);
     // Test the CScript::Set* methods
     CBasicKeyStore keystore;
@@ -206,6 +212,8 @@ BOOST_AUTO_TEST_CASE(set)
 
 BOOST_AUTO_TEST_CASE(is)
 {
+    std::cout << "Entering is test" << std::endl;
+
     // Test CScript::IsPayToScriptHash()
     uint160 dummy;
     CScript p2sh;
@@ -237,6 +245,8 @@ BOOST_AUTO_TEST_CASE(is)
 
 BOOST_AUTO_TEST_CASE(switchover)
 {
+    std::cout << "Entering switchover test" << std::endl;
+
     // Test switch over code
     CScript notValid;
     ScriptError err;
@@ -257,6 +267,8 @@ BOOST_AUTO_TEST_CASE(switchover)
 
 BOOST_AUTO_TEST_CASE(AreInputsStandard)
 {
+    std::cout << "Entering AreInputsStandard test" << std::endl;
+
     LOCK(cs_main);
     CCoinsView coinsDummy;
     CCoinsViewCache coins(&coinsDummy);

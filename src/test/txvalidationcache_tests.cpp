@@ -35,6 +35,8 @@ ToMemPool(CMutableTransaction& tx)
 
 BOOST_FIXTURE_TEST_CASE(tx_mempool_block_doublespend, TestChain100Setup)
 {
+    std::cout << "Entering tx_mempool_block_doublespend test" << std::endl;
+
     // Make sure skipping validation of transactions that were
     // validated going into the memory pool does not allow
     // double-spends in blocks to pass validation when they should not.
@@ -151,6 +153,8 @@ void ValidateCheckInputsForAllFlags(CMutableTransaction &tx, uint32_t failing_fl
 
 BOOST_FIXTURE_TEST_CASE(checkinputs_test, TestChain100Setup)
 {
+    std::cout << "Entering checkinputs_test test" << std::endl;
+
     // Test that passing CheckInputs with one set of script flags doesn't imply
     // that we would pass again with a different set of flags.
     {

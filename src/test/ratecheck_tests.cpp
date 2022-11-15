@@ -11,6 +11,8 @@ BOOST_FIXTURE_TEST_SUITE(ratecheck_tests, BasicTestingSetup)
 
 BOOST_AUTO_TEST_CASE(ratecheck_test)
 {
+    std::cout << "Entering ratecheck_test test" << std::endl;
+
     CRateCheckBuffer buffer;
 
     BOOST_CHECK(buffer.GetCount() == 0);

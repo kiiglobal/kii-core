@@ -45,32 +45,44 @@ BOOST_FIXTURE_TEST_SUITE(blockchain_tests, BasicTestingSetup)
 
 BOOST_AUTO_TEST_CASE(get_difficulty_for_very_low_target)
 {
+    std::cout << "Entering get_difficulty_for_very_low_target test" << std::endl;
+
     TestDifficulty(0x1f111111, 0.000001);
 }
 
 BOOST_AUTO_TEST_CASE(get_difficulty_for_low_target)
 {
+    std::cout << "Entering get_difficulty_for_low_target test" << std::endl;
+
     TestDifficulty(0x1ef88f6f, 0.000016);
 }
 
 BOOST_AUTO_TEST_CASE(get_difficulty_for_mid_target)
 {
+    std::cout << "Entering get_difficulty_for_mid_target test" << std::endl;
+
     TestDifficulty(0x1df88f6f, 0.004023);
 }
 
 BOOST_AUTO_TEST_CASE(get_difficulty_for_high_target)
 {
+    std::cout << "Entering get_difficulty_for_high_target test" << std::endl;
+
     TestDifficulty(0x1cf88f6f, 1.029916);
 }
 
 BOOST_AUTO_TEST_CASE(get_difficulty_for_very_high_target)
 {
+    std::cout << "Entering get_difficulty_for_very_high_target test" << std::endl;
+
     TestDifficulty(0x12345678, 5913134931067755359633408.0);
 }
 
 // Verify that difficulty is 1.0 for an empty chain.
 BOOST_AUTO_TEST_CASE(get_difficulty_for_null_tip)
 {
+    std::cout << "Entering get_difficulty_for_null_tip test" << std::endl;
+
     double difficulty = GetDifficulty(nullptr);
     RejectDifficultyMismatch(difficulty, 1.0);
 }

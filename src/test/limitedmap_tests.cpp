@@ -12,6 +12,8 @@ BOOST_FIXTURE_TEST_SUITE(limitedmap_tests, BasicTestingSetup)
 
 BOOST_AUTO_TEST_CASE(limitedmap_test)
 {
+    std::cout << "Entering limitedmap_test test" << std::endl;
+
     // create a limitedmap capped at 10 items
     unordered_limitedmap<int, int> map(10);
 

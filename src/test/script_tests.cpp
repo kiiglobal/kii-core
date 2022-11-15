@@ -443,6 +443,8 @@ std::string JSONPrettyPrint(const UniValue& univalue)
 
 BOOST_AUTO_TEST_CASE(script_build)
 {
+    std::cout << "Entering script_build test" << std::endl;
+
     const KeyData keys;
 
     std::vector<TestBuilder> tests;
@@ -915,6 +917,8 @@ BOOST_AUTO_TEST_CASE(script_build)
 
 BOOST_AUTO_TEST_CASE(script_json_test)
 {
+    std::cout << "Entering script_json_test test" << std::endl;
+
     // Read tests from test/data/script_tests.json
     // Format is an array of arrays
     // Inner arrays are [ "scriptSig", "scriptPubKey", "flags", "expected_scripterror" ]
@@ -945,6 +949,8 @@ BOOST_AUTO_TEST_CASE(script_json_test)
 
 BOOST_AUTO_TEST_CASE(script_PushData)
 {
+    std::cout << "Entering script_PushData test" << std::endl;
+
     // Check that PUSHDATA1, PUSHDATA2, and PUSHDATA4 create the same value on
     // the stack as the 1-75 opcodes do.
     static const unsigned char direct[] = { 1, 0x5a };
@@ -1007,6 +1013,8 @@ sign_multisig(CScript scriptPubKey, const CKey &key, CTransaction transaction)
 
 BOOST_AUTO_TEST_CASE(script_CHECKMULTISIG12)
 {
+    std::cout << "Entering script_CHECKMULTISIG12 test" << std::endl;
+
     ScriptError err;
     CKey key1, key2, key3;
     key1.MakeNewKey(true);
@@ -1037,6 +1045,8 @@ BOOST_AUTO_TEST_CASE(script_CHECKMULTISIG12)
 
 BOOST_AUTO_TEST_CASE(script_CHECKMULTISIG23)
 {
+    std::cout << "Entering script_CHECKMULTISIG23 test" << std::endl;
+
     ScriptError err;
     CKey key1, key2, key3, key4;
     key1.MakeNewKey(true);
@@ -1106,6 +1116,8 @@ BOOST_AUTO_TEST_CASE(script_CHECKMULTISIG23)
 
 BOOST_AUTO_TEST_CASE(script_combineSigs)
 {
+    std::cout << "Entering script_combineSigs test" << std::endl;
+
     // Test the CombineSignatures function
     CAmount amount;
     CBasicKeyStore keystore;
@@ -1216,6 +1228,8 @@ BOOST_AUTO_TEST_CASE(script_combineSigs)
 
 BOOST_AUTO_TEST_CASE(script_standard_push)
 {
+    std::cout << "Entering script_standard_push test" << std::endl;
+
     ScriptError err;
     for (int i=0; i<67000; i++) {
         CScript script;
@@ -1237,6 +1251,8 @@ BOOST_AUTO_TEST_CASE(script_standard_push)
 
 BOOST_AUTO_TEST_CASE(script_IsPushOnly_on_invalid_scripts)
 {
+    std::cout << "Entering script_IsPushOnly_on_invalid_scripts test" << std::endl;
+
     // IsPushOnly returns false when given a script containing only pushes that
     // are invalid due to truncation. IsPushOnly() is consensus critical
     // because P2SH evaluation uses it, although this specific behavior should
@@ -1248,6 +1264,8 @@ BOOST_AUTO_TEST_CASE(script_IsPushOnly_on_invalid_scripts)
 
 BOOST_AUTO_TEST_CASE(script_GetScriptAsm)
 {
+    std::cout << "Entering script_GetScriptAsm test" << std::endl;
+
     BOOST_CHECK_EQUAL("OP_CHECKLOCKTIMEVERIFY", ScriptToAsmStr(CScript() << OP_NOP2, true));
     BOOST_CHECK_EQUAL("OP_CHECKLOCKTIMEVERIFY", ScriptToAsmStr(CScript() << OP_CHECKLOCKTIMEVERIFY, true));
     BOOST_CHECK_EQUAL("OP_CHECKLOCKTIMEVERIFY", ScriptToAsmStr(CScript() << OP_NOP2));
@@ -1286,6 +1304,8 @@ ScriptFromHex(const char* hex)
 
 BOOST_AUTO_TEST_CASE(script_FindAndDelete)
 {
+    std::cout << "Entering script_FindAndDelete test" << std::endl;
+
     // Exercise the FindAndDelete functionality
     CScript s;
     CScript d;
@@ -1395,6 +1415,8 @@ BOOST_AUTO_TEST_CASE(script_FindAndDelete)
 
 BOOST_AUTO_TEST_CASE(script_can_append_self)
 {
+    std::cout << "Entering script_can_append_self test" << std::endl;
+
     CScript s, d;
 
     s = ScriptFromHex("00");

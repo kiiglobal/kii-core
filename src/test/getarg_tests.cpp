@@ -32,6 +32,8 @@ static void ResetArgs(const std::string& strArg)
 
 BOOST_AUTO_TEST_CASE(boolarg)
 {
+    std::cout << "Entering boolarg test" << std::endl;
+
     ResetArgs("-foo");
     BOOST_CHECK(gArgs.GetBoolArg("-foo", false));
     BOOST_CHECK(gArgs.GetBoolArg("-foo", true));
@@ -84,6 +86,8 @@ BOOST_AUTO_TEST_CASE(boolarg)
 
 BOOST_AUTO_TEST_CASE(stringarg)
 {
+    std::cout << "Entering stringarg test" << std::endl;
+
     ResetArgs("");
     BOOST_CHECK_EQUAL(gArgs.GetArg("-foo", ""), "");
     BOOST_CHECK_EQUAL(gArgs.GetArg("-foo", "eleven"), "eleven");
@@ -108,6 +112,8 @@ BOOST_AUTO_TEST_CASE(stringarg)
 
 BOOST_AUTO_TEST_CASE(intarg)
 {
+    std::cout << "Entering intarg test" << std::endl;
+
     ResetArgs("");
     BOOST_CHECK_EQUAL(gArgs.GetArg("-foo", 11), 11);
     BOOST_CHECK_EQUAL(gArgs.GetArg("-foo", 0), 0);
@@ -127,6 +133,8 @@ BOOST_AUTO_TEST_CASE(intarg)
 
 BOOST_AUTO_TEST_CASE(doublekii)
 {
+    std::cout << "Entering doublekii test" << std::endl;
+
     ResetArgs("--foo");
     BOOST_CHECK_EQUAL(gArgs.GetBoolArg("-foo", false), true);
 
@@ -137,6 +145,8 @@ BOOST_AUTO_TEST_CASE(doublekii)
 
 BOOST_AUTO_TEST_CASE(boolargno)
 {
+    std::cout << "Entering boolargno test" << std::endl;
+
     ResetArgs("-nofoo");
     BOOST_CHECK(!gArgs.GetBoolArg("-foo", true));
     BOOST_CHECK(!gArgs.GetBoolArg("-foo", false));

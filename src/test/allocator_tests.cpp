@@ -15,6 +15,8 @@ BOOST_FIXTURE_TEST_SUITE(allocator_tests, BasicTestingSetup)
 
 BOOST_AUTO_TEST_CASE(arena_tests)
 {
+    std::cout << "Entering arena_tests test" << std::endl;
+
     // Fake memory base address for testing
     // without actually using memory.
     void *synth_base = reinterpret_cast<void*>(0x08000000);
@@ -162,6 +164,8 @@ private:
 
 BOOST_AUTO_TEST_CASE(lockedpool_tests_mock)
 {
+    std::cout << "Entering lockedpool_tests_mock test" << std::endl;
+
     // Test over three virtual arenas, of which one will succeed being locked
     std::unique_ptr<LockedPageAllocator> x(new TestLockedPageAllocator(3, 1));
     LockedPool pool(std::move(x));
@@ -211,6 +215,8 @@ BOOST_AUTO_TEST_CASE(lockedpool_tests_mock)
 // tests are somewhat more error-prone.
 BOOST_AUTO_TEST_CASE(lockedpool_tests_live)
 {
+    std::cout << "Entering lockedpool_tests_live test" << std::endl;
+
     LockedPoolManager &pool = LockedPoolManager::Instance();
     LockedPool::Stats initial = pool.stats();
 

@@ -58,6 +58,8 @@ static CBlock BuildBlockTestCase() {
 
 BOOST_AUTO_TEST_CASE(SimpleRoundTripTest)
 {
+    std::cout << "Entering SimpleRoundTripTest test" << std::endl;
+
     CTxMemPool pool;
     TestMemPoolEntryHelper entry;
     CBlock block(BuildBlockTestCase());
@@ -158,6 +160,8 @@ public:
 
 BOOST_AUTO_TEST_CASE(NonCoinbasePreforwardRTTest)
 {
+    std::cout << "Entering NonCoinbasePreforwardRTTest test" << std::endl;
+
     CTxMemPool pool;
     TestMemPoolEntryHelper entry;
     CBlock block(BuildBlockTestCase());
@@ -225,6 +229,8 @@ BOOST_AUTO_TEST_CASE(NonCoinbasePreforwardRTTest)
 
 BOOST_AUTO_TEST_CASE(SufficientPreforwardRTTest)
 {
+    std::cout << "Entering SufficientPreforwardRTTest test" << std::endl;
+
     CTxMemPool pool;
     TestMemPoolEntryHelper entry;
     CBlock block(BuildBlockTestCase());
@@ -276,6 +282,8 @@ BOOST_AUTO_TEST_CASE(SufficientPreforwardRTTest)
 
 BOOST_AUTO_TEST_CASE(EmptyBlockRoundTripTest)
 {
+    std::cout << "Entering EmptyBlockRoundTripTest test" << std::endl;
+
     CTxMemPool pool;
     CMutableTransaction coinbase;
     coinbase.vin.resize(1);
@@ -318,7 +326,10 @@ BOOST_AUTO_TEST_CASE(EmptyBlockRoundTripTest)
     }
 }
 
-BOOST_AUTO_TEST_CASE(TransactionsRequestSerializationTest) {
+BOOST_AUTO_TEST_CASE(TransactionsRequestSerializationTest)
+{
+    std::cout << "Entering TransactionsRequestSerializationTest test" << std::endl;
+
     BlockTransactionsRequest req1;
     req1.blockhash = InsecureRand256();
     req1.indexes.resize(4);
@@ -341,7 +352,10 @@ BOOST_AUTO_TEST_CASE(TransactionsRequestSerializationTest) {
     BOOST_CHECK_EQUAL(req1.indexes[3], req2.indexes[3]);
 }
 
-BOOST_AUTO_TEST_CASE(TransactionsRequestDeserializationMaxTest) {
+BOOST_AUTO_TEST_CASE(TransactionsRequestDeserializationMaxTest)
+{
+    std::cout << "Entering TransactionsRequestDeserializationMaxTest test" << std::endl;
+
     // Check that the highest legal index is decoded correctly
     BlockTransactionsRequest req0;
     req0.blockhash = InsecureRand256();
@@ -356,7 +370,10 @@ BOOST_AUTO_TEST_CASE(TransactionsRequestDeserializationMaxTest) {
     BOOST_CHECK_EQUAL(req0.indexes[0], req1.indexes[0]);
 }
 
-BOOST_AUTO_TEST_CASE(TransactionsRequestDeserializationOverflowTest) {
+BOOST_AUTO_TEST_CASE(TransactionsRequestDeserializationOverflowTest)
+{
+    std::cout << "Entering TransactionsRequestDeserializationOverflowTest test" << std::endl;
+
     // Any set of index deltas that starts with N values that sum to (0x10000 - N)
     // causes the edge-case overflow that was originally not checked for. Such
     // a request cannot be created by serializing a real BlockTransactionsRequest

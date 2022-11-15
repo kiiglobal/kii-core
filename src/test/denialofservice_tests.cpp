@@ -57,6 +57,7 @@ BOOST_FIXTURE_TEST_SUITE(denialofservice_tests, TestingSetup)
 // work.
 BOOST_AUTO_TEST_CASE(outbound_slow_chain_eviction)
 {
+    std::cout << "Entering outbound_slow_chain_eviction test" << std::endl;
 
     // Mock an outbound peer
     CAddress addr1(ip(0xa0b0c001), NODE_NONE);
@@ -126,6 +127,8 @@ void AddRandomOutboundPeer(std::vector<CNode *> &vNodes, PeerLogicValidation &pe
 
 BOOST_AUTO_TEST_CASE(stale_tip_peer_management)
 {
+    std::cout << "Entering stale_tip_peer_management test" << std::endl;
+
     const Consensus::Params& consensusParams = Params().GetConsensus();
     constexpr int nMaxOutbound = 8;
     CConnman::Options options;
@@ -195,6 +198,7 @@ BOOST_AUTO_TEST_CASE(stale_tip_peer_management)
 
 BOOST_AUTO_TEST_CASE(DoS_banning)
 {
+    std::cout << "Entering DoS_banning test" << std::endl;
 
     connman->ClearBanned();
     CAddress addr1(ip(0xa0b0c001), NODE_NONE);
@@ -247,6 +251,7 @@ BOOST_AUTO_TEST_CASE(DoS_banning)
 
 BOOST_AUTO_TEST_CASE(DoS_banscore)
 {
+    std::cout << "Entering DoS_banscore test" << std::endl;
 
     connman->ClearBanned();
     gArgs.ForceSetArg("-banscore", "111"); // because 11 is my favorite number
@@ -291,6 +296,7 @@ BOOST_AUTO_TEST_CASE(DoS_banscore)
 
 BOOST_AUTO_TEST_CASE(DoS_bantime)
 {
+    std::cout << "Entering DoS_bantime test" << std::endl;
 
     connman->ClearBanned();
     int64_t nStartTime = GetTime();
@@ -335,6 +341,8 @@ CTransactionRef RandomOrphan()
 
 BOOST_AUTO_TEST_CASE(DoS_mapOrphans)
 {
+    std::cout << "Entering DoS_mapOrphans test" << std::endl;
+
     CKey key;
     key.MakeNewKey(true);
     CBasicKeyStore keystore;

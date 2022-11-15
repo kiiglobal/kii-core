@@ -12,6 +12,8 @@ BOOST_FIXTURE_TEST_SUITE(amount_tests, BasicTestingSetup)
 
 BOOST_AUTO_TEST_CASE(MoneyRangeTest)
 {
+    std::cout << "Entering MoneyRangeTest test" << std::endl;
+
     BOOST_CHECK_EQUAL(MoneyRange(CAmount(-1)), false);
     BOOST_CHECK_EQUAL(MoneyRange(MAX_MONEY + CAmount(1)), false);
     BOOST_CHECK_EQUAL(MoneyRange(CAmount(1)), true);
@@ -19,6 +21,8 @@ BOOST_AUTO_TEST_CASE(MoneyRangeTest)
 
 BOOST_AUTO_TEST_CASE(GetFeeTest)
 {
+    std::cout << "Entering GetFeeTest test" << std::endl;
+
     CFeeRate feeRate, altFeeRate;
 
     feeRate = CFeeRate(0);
@@ -83,6 +87,8 @@ BOOST_AUTO_TEST_CASE(GetFeeTest)
 
 BOOST_AUTO_TEST_CASE(BinaryOperatorTest)
 {
+    std::cout << "Entering BinaryOperatorTest test" << std::endl;
+
     CFeeRate a, b;
     a = CFeeRate(1);
     b = CFeeRate(2);
@@ -100,6 +106,8 @@ BOOST_AUTO_TEST_CASE(BinaryOperatorTest)
 
 BOOST_AUTO_TEST_CASE(ToStringTest)
 {
+    std::cout << "Entering ToStringTest test" << std::endl;
+
     CFeeRate feeRate;
     feeRate = CFeeRate(1);
     BOOST_CHECK_EQUAL(feeRate.ToString(), "0.00000001 KII/kB");

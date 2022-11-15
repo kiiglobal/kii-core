@@ -40,6 +40,8 @@ static void MicroSleep(uint64_t n)
 
 BOOST_AUTO_TEST_CASE(manythreads)
 {
+    std::cout << "Entering manythreads test" << std::endl;
+
     // Stress test: hundreds of microsecond-scheduled tasks,
     // serviced by 10 threads.
     //
@@ -114,6 +116,8 @@ BOOST_AUTO_TEST_CASE(manythreads)
 
 BOOST_AUTO_TEST_CASE(singlethreadedscheduler_ordered)
 {
+    std::cout << "Entering singlethreadedscheduler_ordered test" << std::endl;
+
     CScheduler scheduler;
 
     // each queue should be well ordered with respect to itself but not other queues

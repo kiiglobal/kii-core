@@ -178,6 +178,8 @@ void Correct_Queue_range(std::vector<size_t> range)
  */
 BOOST_AUTO_TEST_CASE(test_CheckQueue_Correct_Zero)
 {
+    std::cout << "Entering test_CheckQueue_Correct_Zero test" << std::endl;
+
     std::vector<size_t> range;
     range.push_back((size_t)0);
     Correct_Queue_range(range);
@@ -186,6 +188,8 @@ BOOST_AUTO_TEST_CASE(test_CheckQueue_Correct_Zero)
  */
 BOOST_AUTO_TEST_CASE(test_CheckQueue_Correct_One)
 {
+    std::cout << "Entering test_CheckQueue_Correct_One test" << std::endl;
+
     std::vector<size_t> range;
     range.push_back((size_t)1);
     Correct_Queue_range(range);
@@ -194,6 +198,8 @@ BOOST_AUTO_TEST_CASE(test_CheckQueue_Correct_One)
  */
 BOOST_AUTO_TEST_CASE(test_CheckQueue_Correct_Max)
 {
+    std::cout << "Entering test_CheckQueue_Correct_Max test" << std::endl;
+
     std::vector<size_t> range;
     range.push_back(100000);
     Correct_Queue_range(range);
@@ -202,6 +208,8 @@ BOOST_AUTO_TEST_CASE(test_CheckQueue_Correct_Max)
  */
 BOOST_AUTO_TEST_CASE(test_CheckQueue_Correct_Random)
 {
+    std::cout << "Entering test_CheckQueue_Correct_Random test" << std::endl;
+
     std::vector<size_t> range;
     range.reserve(100000/1000);
     for (size_t i = 2; i < 100000; i += std::max((size_t)1, (size_t)InsecureRandRange(std::min((size_t)1000, ((size_t)100000) - i))))
@@ -213,6 +221,8 @@ BOOST_AUTO_TEST_CASE(test_CheckQueue_Correct_Random)
 /** Test that failing checks are caught */
 BOOST_AUTO_TEST_CASE(test_CheckQueue_Catches_Failure)
 {
+    std::cout << "Entering test_CheckQueue_Catches_Failure test" << std::endl;
+
     auto fail_queue = std::unique_ptr<Failing_Queue>(new Failing_Queue {QUEUE_BATCH_SIZE});
 
     boost::thread_group tg;
@@ -246,6 +256,8 @@ BOOST_AUTO_TEST_CASE(test_CheckQueue_Catches_Failure)
 // future blocks, ie, the bad state is cleared.
 BOOST_AUTO_TEST_CASE(test_CheckQueue_Recovers_From_Failure)
 {
+    std::cout << "Entering test_CheckQueue_Recovers_From_Failure test" << std::endl;
+
     auto fail_queue = std::unique_ptr<Failing_Queue>(new Failing_Queue {QUEUE_BATCH_SIZE});
     boost::thread_group tg;
     for (auto x = 0; x < nScriptCheckThreads; ++x) {
@@ -274,6 +286,8 @@ BOOST_AUTO_TEST_CASE(test_CheckQueue_Recovers_From_Failure)
 // more than once as well
 BOOST_AUTO_TEST_CASE(test_CheckQueue_UniqueCheck)
 {
+    std::cout << "Entering test_CheckQueue_UniqueCheck test" << std::endl;
+
     auto queue = std::unique_ptr<Unique_Queue>(new Unique_Queue {QUEUE_BATCH_SIZE});
     boost::thread_group tg;
     for (auto x = 0; x < nScriptCheckThreads; ++x) {
@@ -310,6 +324,8 @@ BOOST_AUTO_TEST_CASE(test_CheckQueue_UniqueCheck)
 // time could leave the data hanging across a sequence of blocks.
 BOOST_AUTO_TEST_CASE(test_CheckQueue_Memory)
 {
+    std::cout << "Entering test_CheckQueue_Memory test" << std::endl;
+
     auto queue = std::unique_ptr<Memory_Queue>(new Memory_Queue {QUEUE_BATCH_SIZE});
     boost::thread_group tg;
     for (auto x = 0; x < nScriptCheckThreads; ++x) {
@@ -341,6 +357,8 @@ BOOST_AUTO_TEST_CASE(test_CheckQueue_Memory)
 // have been destructed
 BOOST_AUTO_TEST_CASE(test_CheckQueue_FrozenCleanup)
 {
+    std::cout << "Entering test_CheckQueue_FrozenCleanup test" << std::endl;
+
     auto queue = std::unique_ptr<FrozenCleanup_Queue>(new FrozenCleanup_Queue {QUEUE_BATCH_SIZE});
     boost::thread_group tg;
     bool fails = false;
@@ -384,6 +402,8 @@ BOOST_AUTO_TEST_CASE(test_CheckQueue_FrozenCleanup)
 /** Test that CCheckQueueControl is threadsafe */
 BOOST_AUTO_TEST_CASE(test_CheckQueueControl_Locks)
 {
+    std::cout << "Entering test_CheckQueueControl_Locks test" << std::endl;
+
     auto queue = std::unique_ptr<Standard_Queue>(new Standard_Queue{QUEUE_BATCH_SIZE});
     {
         boost::thread_group tg;

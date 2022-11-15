@@ -71,6 +71,8 @@ bool CheckExpected(const CacheMultiMap<int,int>& cmmap, int* expected, CacheMult
 
 BOOST_AUTO_TEST_CASE(cachemultimap_test)
 {
+    std::cout << "Entering cachemultimap_test test" << std::endl;
+
     // create a CacheMultiMap limited to 10 items
     CacheMultiMap<int,int> cmmapTest1(10);
 

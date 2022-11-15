@@ -16,6 +16,8 @@ BOOST_FIXTURE_TEST_SUITE(skiplist_tests, BasicTestingSetup)
 
 BOOST_AUTO_TEST_CASE(skiplist_test)
 {
+    std::cout << "Entering skiplist_test test" << std::endl;
+
     std::vector<CBlockIndex> vIndex(SKIPLIST_LENGTH);
 
     for (int i=0; i<SKIPLIST_LENGTH; i++) {
@@ -45,6 +47,8 @@ BOOST_AUTO_TEST_CASE(skiplist_test)
 
 BOOST_AUTO_TEST_CASE(getlocator_test)
 {
+    std::cout << "Entering getlocator_test test" << std::endl;
+
     // Build a main chain 100000 blocks long.
     std::vector<uint256> vHashMain(100000);
     std::vector<CBlockIndex> vBlocksMain(100000);
@@ -101,6 +105,8 @@ BOOST_AUTO_TEST_CASE(getlocator_test)
 
 BOOST_AUTO_TEST_CASE(findearliestatleast_test)
 {
+    std::cout << "Entering findearliestatleast_test test" << std::endl;
+
     std::vector<uint256> vHashMain(100000);
     std::vector<CBlockIndex> vBlocksMain(100000);
     for (unsigned int i=0; i<vBlocksMain.size(); i++) {
@@ -145,6 +151,8 @@ BOOST_AUTO_TEST_CASE(findearliestatleast_test)
 
 BOOST_AUTO_TEST_CASE(findearliestatleast_edge_test)
 {
+    std::cout << "Entering findearliestatleast_edge_test test" << std::endl;
+
     std::list<CBlockIndex> blocks;
     for (unsigned int timeMax : {100, 100, 100, 200, 200, 200, 300, 300, 300}) {
         CBlockIndex* prev = blocks.empty() ? nullptr : &blocks.back();

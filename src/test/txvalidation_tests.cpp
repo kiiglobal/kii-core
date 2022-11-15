@@ -20,6 +20,8 @@ BOOST_AUTO_TEST_SUITE(txvalidation_tests)
  */
 BOOST_FIXTURE_TEST_CASE(tx_mempool_reject_coinbase, TestChain100Setup)
 {
+    std::cout << "Entering tx_mempool_reject_coinbase test" << std::endl;
+
     CScript scriptPubKey = CScript() << ToByteVector(coinbaseKey.GetPubKey()) << OP_CHECKSIG;
     CMutableTransaction coinbaseTx;
 

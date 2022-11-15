@@ -16,6 +16,8 @@ bool ReturnTrue() { return true; }
 
 BOOST_AUTO_TEST_CASE(test_combiner_all)
 {
+    std::cout << "Entering test_combiner_all test" << std::endl;
+
     boost::signals2::signal<bool (), CombinerAll> Test;
     BOOST_CHECK(Test());
     Test.connect(&ReturnFalse);

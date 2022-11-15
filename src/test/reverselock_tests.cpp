@@ -11,6 +11,8 @@ BOOST_FIXTURE_TEST_SUITE(reverselock_tests, BasicTestingSetup)
 
 BOOST_AUTO_TEST_CASE(reverselock_basics)
 {
+    std::cout << "Entering reverselock_basics test" << std::endl;
+
     boost::mutex mutex;
     boost::unique_lock<boost::mutex> lock(mutex);
 
@@ -24,6 +26,8 @@ BOOST_AUTO_TEST_CASE(reverselock_basics)
 
 BOOST_AUTO_TEST_CASE(reverselock_errors)
 {
+    std::cout << "Entering reverselock_errors test" << std::endl;
+
     boost::mutex mutex;
     boost::unique_lock<boost::mutex> lock(mutex);
 

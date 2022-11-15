@@ -77,6 +77,8 @@ BOOST_FIXTURE_TEST_SUITE(net_tests, BasicTestingSetup)
 
 BOOST_AUTO_TEST_CASE(cnode_listen_port)
 {
+    std::cout << "Entering cnode_listen_port test" << std::endl;
+
     // test default
     unsigned short port = GetListenPort();
     BOOST_CHECK(port == Params().GetDefaultPort());
@@ -89,6 +91,8 @@ BOOST_AUTO_TEST_CASE(cnode_listen_port)
 
 BOOST_AUTO_TEST_CASE(caddrdb_read)
 {
+    std::cout << "Entering caddrdb_read test" << std::endl;
+
     SetDataDir("caddrdb_read");
     CAddrManUncorrupted addrmanUncorrupted;
     addrmanUncorrupted.MakeDeterministic();
@@ -135,6 +139,8 @@ BOOST_AUTO_TEST_CASE(caddrdb_read)
 
 BOOST_AUTO_TEST_CASE(caddrdb_read_corrupted)
 {
+    std::cout << "Entering caddrdb_read_corrupted test" << std::endl;
+
     SetDataDir("caddrdb_read_corrupted");
     CAddrManCorrupted addrmanCorrupted;
     addrmanCorrupted.MakeDeterministic();
@@ -167,6 +173,8 @@ BOOST_AUTO_TEST_CASE(caddrdb_read_corrupted)
 
 BOOST_AUTO_TEST_CASE(cnode_simple_test)
 {
+    std::cout << "Entering cnode_simple_test test" << std::endl;
+
     SOCKET hSocket = INVALID_SOCKET;
     NodeId id = 0;
     int height = 0;
@@ -191,6 +199,8 @@ BOOST_AUTO_TEST_CASE(cnode_simple_test)
 
 BOOST_AUTO_TEST_CASE(PoissonNextSend)
 {
+    std::cout << "Entering PoissonNextSend test" << std::endl;
+
     g_mock_deterministic_tests = true;
     int64_t now = 5000;
     int average_interval_seconds = 600;
@@ -206,6 +216,8 @@ BOOST_AUTO_TEST_CASE(PoissonNextSend)
 // prior to PR #14728, this test triggers an undefined behavior
 BOOST_AUTO_TEST_CASE(ipv4_peer_with_ipv6_addrMe_test)
 {
+    std::cout << "Entering ipv4_peer_with_ipv6_addrMe_test test" << std::endl;
+
     // set up local addresses; all that's necessary to reproduce the bug is
     // that a normal IPv4 address is among the entries, but if this address is
     // !IsRoutable the undefined behavior is easier to trigger deterministically

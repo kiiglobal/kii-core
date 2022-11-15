@@ -18,6 +18,8 @@ BOOST_AUTO_TEST_SUITE(blockfilter_tests)
 
 BOOST_AUTO_TEST_CASE(gcsfilter_test)
 {
+    std::cout << "Entering gcsfilter_test test" << std::endl;
+
     GCSFilter::ElementSet included_elements, excluded_elements;
     for (int i = 0; i < 100; ++i) {
         GCSFilter::Element element1(32);
@@ -41,6 +43,8 @@ BOOST_AUTO_TEST_CASE(gcsfilter_test)
 
 BOOST_AUTO_TEST_CASE(blockfilter_basic_test)
 {
+    std::cout << "Entering blockfilter_basic_test test" << std::endl;
+
     CScript included_scripts[5], excluded_scripts[3];
 
     // First two are outputs on a single transaction.
@@ -92,6 +96,8 @@ BOOST_AUTO_TEST_CASE(blockfilter_basic_test)
 
 BOOST_AUTO_TEST_CASE(blockfilters_json_test)
 {
+    std::cout << "Entering blockfilters_json_test test" << std::endl;
+
     UniValue json;
     std::string json_data(json_tests::blockfilters,
                           json_tests::blockfilters + sizeof(json_tests::blockfilters));

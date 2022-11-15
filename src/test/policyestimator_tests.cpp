@@ -15,6 +15,8 @@ BOOST_FIXTURE_TEST_SUITE(policyestimator_tests, BasicTestingSetup)
 
 BOOST_AUTO_TEST_CASE(BlockPolicyEstimates)
 {
+    std::cout << "Entering BlockPolicyEstimates test" << std::endl;
+
     CBlockPolicyEstimator feeEst;
     CTxMemPool mpool(&feeEst);
     LOCK(mpool.cs);

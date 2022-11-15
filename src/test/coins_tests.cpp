@@ -110,6 +110,8 @@ static const unsigned int NUM_SIMULATION_ITERATIONS = 40000;
 // operation hits all branches.
 BOOST_AUTO_TEST_CASE(coins_cache_simulation_test)
 {
+    std::cout << "Entering coins_cache_simulation_test test" << std::endl;
+
     // Various coverage trackers.
     bool removed_all_caches = false;
     bool reached_4_caches = false;
@@ -278,6 +280,8 @@ UtxoData::iterator FindRandomFrom(const std::set<COutPoint> &utxoSet) {
 // has the expected effect (the other duplicate is overwritten at all cache levels)
 BOOST_AUTO_TEST_CASE(updatecoins_simulation_test)
 {
+    std::cout << "Entering updatecoins_simulation_test test" << std::endl;
+
     bool spent_a_duplicate_coinbase = false;
     // A simple map to track what we expect the cache stack to represent.
     std::map<COutPoint, Coin> result;
@@ -475,6 +479,8 @@ BOOST_AUTO_TEST_CASE(updatecoins_simulation_test)
 
 BOOST_AUTO_TEST_CASE(ccoins_serialization)
 {
+    std::cout << "Entering ccoins_serialization test" << std::endl;
+
     // Good example
     CDataStream ss1(ParseHex("97f23c835800816115944e077fe7c803cfa57f29b36bf87c1d35"), SER_DISK, CLIENT_VERSION);
     Coin cc1;
@@ -620,6 +626,8 @@ void CheckAccessCoin(CAmount base_value, CAmount cache_value, CAmount expected_v
 
 BOOST_AUTO_TEST_CASE(ccoins_access)
 {
+    std::cout << "Entering ccoins_access test" << std::endl;
+
     /* Check AccessCoin behavior, requesting a coin from a cache view layered on
      * top of a base view, and checking the resulting entry in the cache after
      * the access.
@@ -671,6 +679,8 @@ void CheckSpendCoins(CAmount base_value, CAmount cache_value, CAmount expected_v
 
 BOOST_AUTO_TEST_CASE(ccoins_spend)
 {
+    std::cout << "Entering ccoins_spend test" << std::endl;
+
     /* Check SpendCoin behavior, requesting a coin from a cache view layered on
      * top of a base view, spending, and then checking
      * the resulting entry in the cache after the modification.
@@ -742,6 +752,8 @@ void CheckAddCoin(Args&&... args)
 
 BOOST_AUTO_TEST_CASE(ccoins_add)
 {
+    std::cout << "Entering ccoins_add test" << std::endl;
+
     /* Check AddCoin behavior, requesting a new coin from a cache view,
      * writing a modification to the coin, and then checking the resulting
      * entry in the cache after the modification. Verify behavior with the
@@ -791,6 +803,8 @@ void CheckWriteCoins(CAmount parent_value, CAmount child_value, CAmount expected
 
 BOOST_AUTO_TEST_CASE(ccoins_write)
 {
+    std::cout << "Entering ccoins_write test" << std::endl;
+
     /* Check BatchWrite behavior, flushing one entry from a child cache to a
      * parent cache, and checking the resulting entry in the parent cache
      * after the write.

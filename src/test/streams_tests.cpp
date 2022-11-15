@@ -12,6 +12,8 @@ BOOST_FIXTURE_TEST_SUITE(streams_tests, BasicTestingSetup)
 
 BOOST_AUTO_TEST_CASE(streams_vector_writer)
 {
+    std::cout << "Entering streams_vector_writer test" << std::endl;
+
     unsigned char a(1);
     unsigned char b(2);
     unsigned char bytes[] = { 3, 4, 5, 6 };
@@ -70,6 +72,8 @@ BOOST_AUTO_TEST_CASE(streams_vector_writer)
 
 BOOST_AUTO_TEST_CASE(streams_vector_reader)
 {
+    std::cout << "Entering streams_vector_reader test" << std::endl;
+
     std::vector<unsigned char> vch = {1, 255, 3, 4, 5, 6};
 
     VectorReader reader(SER_NETWORK, INIT_PROTO_VERSION, vch, 0);
@@ -115,6 +119,8 @@ BOOST_AUTO_TEST_CASE(streams_vector_reader)
 
 BOOST_AUTO_TEST_CASE(bitstream_reader_writer)
 {
+    std::cout << "Entering bitstream_reader_writer test" << std::endl;
+
     CDataStream data(SER_NETWORK, INIT_PROTO_VERSION);
 
     BitStreamWriter<CDataStream> bit_writer(data);
@@ -150,6 +156,8 @@ BOOST_AUTO_TEST_CASE(bitstream_reader_writer)
 
 BOOST_AUTO_TEST_CASE(streams_serializedata_xor)
 {
+    std::cout << "Entering streams_serializedata_xor test" << std::endl;
+
     std::vector<char> in;
     std::vector<char> expected_xor;
     std::vector<unsigned char> key;

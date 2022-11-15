@@ -15,6 +15,8 @@ BOOST_FIXTURE_TEST_SUITE(mempool_tests, TestingSetup)
 
 BOOST_AUTO_TEST_CASE(MempoolRemoveTest)
 {
+    std::cout << "Entering MempoolRemoveTest test" << std::endl;
+
     // Test CTxMemPool::remove functionality
 
     TestMemPoolEntryHelper entry;
@@ -118,6 +120,8 @@ void CheckSort(CTxMemPool &pool, std::vector<std::string> &sortedOrder) EXCLUSIV
 
 BOOST_AUTO_TEST_CASE(MempoolIndexingTest)
 {
+    std::cout << "Entering MempoolIndexingTest test" << std::endl;
+
     CTxMemPool pool;
     LOCK(pool.cs);
     TestMemPoolEntryHelper entry;
@@ -291,6 +295,8 @@ BOOST_AUTO_TEST_CASE(MempoolIndexingTest)
 
 BOOST_AUTO_TEST_CASE(MempoolAncestorIndexingTest)
 {
+    std::cout << "Entering MempoolAncestorIndexingTest test" << std::endl;
+
     CTxMemPool pool;
     LOCK(pool.cs);
     TestMemPoolEntryHelper entry;
@@ -420,6 +426,8 @@ BOOST_AUTO_TEST_CASE(MempoolAncestorIndexingTest)
 
 BOOST_AUTO_TEST_CASE(MempoolSizeLimitTest)
 {
+    std::cout << "Entering MempoolSizeLimitTest test" << std::endl;
+
     CTxMemPool pool;
     LOCK(pool.cs);
     TestMemPoolEntryHelper entry;
@@ -594,6 +602,8 @@ inline CTransactionRef make_tx(std::vector<CAmount>&& output_values, std::vector
 
 BOOST_AUTO_TEST_CASE(MempoolAncestryTests)
 {
+    std::cout << "Entering MempoolAncestryTests test" << std::endl;
+
     size_t ancestors, descendants;
 
     CTxMemPool pool;

@@ -11,6 +11,8 @@ BOOST_FIXTURE_TEST_SUITE(script_p2pkh_tests, BasicTestingSetup)
 
 BOOST_AUTO_TEST_CASE(IsPayToPublicKeyHash)
 {
+    std::cout << "Entering IsPayToPublicKeyHash test" << std::endl;
+
     // Test CScript::IsPayToPublicKeyHash()
     uint160 dummy;
     CScript p2pkh;

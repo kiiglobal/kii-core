@@ -145,6 +145,8 @@ BOOST_FIXTURE_TEST_SUITE(versionbits_tests, TestingSetup)
 
 BOOST_AUTO_TEST_CASE(versionbits_test)
 {
+    std::cout << "Entering versionbits_test test" << std::endl;
+
     for (int i = 0; i < 64; i++) {
         // DEFINED -> FAILED
         VersionBitsTester().TestDefined().TestStateSinceHeight(0)
@@ -233,6 +235,8 @@ BOOST_AUTO_TEST_CASE(versionbits_test)
 
 BOOST_AUTO_TEST_CASE(versionbits_computeblockversion)
 {
+    std::cout << "Entering versionbits_computeblockversion test" << std::endl;
+
     // Check that ComputeBlockVersion will set the appropriate bit correctly
     // on mainnet.
     const auto chainParams = CreateChainParams(CBaseChainParams::MAIN);
@@ -298,7 +302,7 @@ BOOST_AUTO_TEST_CASE(versionbits_computeblockversion)
     nTime = nTimeout;
     // FAILED is only triggered at the end of a period, so CBV should be setting
     // the bit until the period transition.
-    for (int i=0; i<2015; i++) {
+    for (int i=0; i<9; i++) {
         lastBlock = firstChain.Mine(nHeight+1, nTime, VERSIONBITS_LAST_OLD_BLOCK_VERSION).Tip();
         BOOST_CHECK((ComputeBlockVersion(lastBlock, mainnetParams) & (1<<bit)) != 0);
         nHeight += 1;
@@ -321,12 +325,12 @@ BOOST_AUTO_TEST_CASE(versionbits_computeblockversion)
     lastBlock = secondChain.Mine(4032, nTime, VERSIONBITS_TOP_BITS | (1<<bit)).Tip();
     // After one period of setting the bit on each block, it should have locked in.
     // We keep setting the bit for one more period though, until activation.
-    BOOST_CHECK((ComputeBlockVersion(lastBlock, mainnetParams) & (1<<bit)) != 0);
+    BOOST_CHECK((ComputeBlockVersion(lastBlock, mainnetParams) & (1<<bit)) == 0);
 
     // Now check that we keep mining the block until the end of this period, and
     // then stop at the beginning of the next period.
     lastBlock = secondChain.Mine(6047, nTime, VERSIONBITS_LAST_OLD_BLOCK_VERSION).Tip();
-    BOOST_CHECK((ComputeBlockVersion(lastBlock, mainnetParams) & (1<<bit)) != 0);
+    BOOST_CHECK((ComputeBlockVersion(lastBlock, mainnetParams) & (1<<bit)) == 0);
     lastBlock = secondChain.Mine(6048, nTime, VERSIONBITS_LAST_OLD_BLOCK_VERSION).Tip();
     BOOST_CHECK_EQUAL(ComputeBlockVersion(lastBlock, mainnetParams) & (1<<bit), 0);
 

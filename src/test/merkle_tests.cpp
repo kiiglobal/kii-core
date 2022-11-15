@@ -182,6 +182,8 @@ static inline int ctz(uint32_t i) {
 
 BOOST_AUTO_TEST_CASE(merkle_test)
 {
+    std::cout << "Entering merkle_test test" << std::endl;
+
     for (int i = 0; i < 32; i++) {
         // Try 32 block sizes: all sizes from 0 to 16 inclusive, and then 15 random sizes.
         int ntx = (i <= 16) ? i : 17 + (InsecureRandRange(4000));

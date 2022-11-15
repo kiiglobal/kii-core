@@ -28,6 +28,8 @@ void CheckSplitTorReplyLine(std::string input, std::string command, std::string 
 
 BOOST_AUTO_TEST_CASE(util_SplitTorReplyLine)
 {
+    std::cout << "Entering util_SplitTorReplyLine test" << std::endl;
+
     // Data we should receive during normal usage
     CheckSplitTorReplyLine(
         "PROTOCOLINFO PIVERSION",
@@ -76,6 +78,8 @@ void CheckParseTorReplyMapping(std::string input, std::map<std::string,std::stri
 
 BOOST_AUTO_TEST_CASE(util_ParseTorReplyMapping)
 {
+    std::cout << "Entering util_ParseTorReplyMapping test" << std::endl;
+
     // Data we should receive during normal usage
     CheckParseTorReplyMapping(
         "METHODS=COOKIE,SAFECOOKIE COOKIEFILE=\"/home/x/.tor/control_auth_cookie\"", {

@@ -103,6 +103,7 @@ static CAmount make_hard_case(int utxos, std::vector<CInputCoin>& utxo_pool)
 // Branch and bound coin selection tests
 BOOST_AUTO_TEST_CASE(bnb_search_test)
 {
+    std::cout << "Entering bnb_search_test test" << std::endl;
 
     LOCK(testWallet.cs_wallet);
 
@@ -226,6 +227,8 @@ BOOST_AUTO_TEST_CASE(bnb_search_test)
 
 BOOST_AUTO_TEST_CASE(knapsack_solver_test)
 {
+    std::cout << "Entering knapsack_solver_test test" << std::endl;
+
     CoinSet setCoinsRet, setCoinsRet2;
     CAmount nValueRet;
     bool bnb_used;
@@ -494,6 +497,8 @@ BOOST_AUTO_TEST_CASE(knapsack_solver_test)
 
 BOOST_AUTO_TEST_CASE(ApproximateBestSubset)
 {
+    std::cout << "Entering ApproximateBestSubset test" << std::endl;
+
     CoinSet setCoinsRet;
     CAmount nValueRet;
     bool bnb_used;
@@ -517,6 +522,8 @@ BOOST_AUTO_TEST_CASE(ApproximateBestSubset)
 // Tests that with the ideal conditions, the coin selector will always be able to find a solution that can pay the target value
 BOOST_AUTO_TEST_CASE(SelectCoins_test)
 {
+    std::cout << "Entering SelectCoins_test test" << std::endl;
+
     // Random generator stuff
     std::default_random_engine generator;
     std::exponential_distribution<double> distribution (100);

@@ -140,14 +140,20 @@ void RunTest(const TestVector &test) {
 BOOST_FIXTURE_TEST_SUITE(bip32_tests, BasicTestingSetup)
 
 BOOST_AUTO_TEST_CASE(bip32_test1) {
+    std::cout << "Entering bip32_test1 test" << std::endl;
+
     RunTest(test1);
 }
 
 BOOST_AUTO_TEST_CASE(bip32_test2) {
+    std::cout << "Entering bip32_test2 test" << std::endl;
+
     RunTest(test2);
 }
 
 BOOST_AUTO_TEST_CASE(bip32_test3) {
+    std::cout << "Entering bip32_test3 test" << std::endl;
+
     RunTest(test3);
 }
 

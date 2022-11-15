@@ -24,6 +24,8 @@ bool CaseInsensitiveEqual(const std::string &s1, const std::string &s2)
 
 BOOST_AUTO_TEST_CASE(bip173_testvectors_valid)
 {
+    std::cout << "Entering bip173_testvectors_valid test" << std::endl;
+
     static const std::string CASES[] = {
         "A12UEL5L",
         "a12uel5l",
@@ -44,6 +46,8 @@ BOOST_AUTO_TEST_CASE(bip173_testvectors_valid)
 
 BOOST_AUTO_TEST_CASE(bip173_testvectors_invalid)
 {
+    std::cout << "Entering bip173_testvectors_invalid test" << std::endl;
+
     static const std::string CASES[] = {
         " 1nwldj5",
         "\x7f""1axkwrx",

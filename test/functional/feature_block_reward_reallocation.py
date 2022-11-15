@@ -150,7 +150,7 @@ class BlockRewardReallocationTest(KIITestFramework):
         bt = self.nodes[0].getblocktemplate()
         assert_equal(bt['masternode'][0]['amount'], get_masternode_payment(bt['height'], bt['coinbasevalue'], 2500))
         assert_equal(bt['coinbasevalue'], 13748571607)
-        assert_equal(bt['masternode'][0]['amount'], 6874285801) # 0.4999995815
+        assert_equal(bt['masternode'][0]['amount'], 6874285801) # 0.4999999998
 
         self.log.info("Reallocation should kick-in with the superblock mined at height = 2010")
         for period in range(19):  # there will be 19 adjustments, 3 superblocks long each
@@ -200,3 +200,4 @@ class BlockRewardReallocationTest(KIITestFramework):
 
 if __name__ == '__main__':
     BlockRewardReallocationTest().main()
+

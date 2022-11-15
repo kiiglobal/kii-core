@@ -16,6 +16,8 @@ BOOST_FIXTURE_TEST_SUITE(pow_tests, BasicTestingSetup)
 /* Test calculation of next difficulty target with DGW */
 BOOST_AUTO_TEST_CASE(get_next_work)
 {
+    std::cout << "Entering get_next_work test" << std::endl;
+
     const auto chainParams = CreateChainParams(CBaseChainParams::MAIN);
 
     // build the chain of 24 blocks
@@ -118,7 +120,7 @@ BOOST_AUTO_TEST_CASE(get_next_work)
 
     CBlockHeader blockHeader;
     blockHeader.nTime = 1408732505; // Block #123457
-    BOOST_CHECK_EQUAL(GetNextWorkRequired(&blockIndexLast, &blockHeader, chainParams->GetConsensus()), 0x1b1441de); // Block #123457 has 0x1b1441de
+    BOOST_CHECK_EQUAL(GetNextWorkRequired(&blockIndexLast, &blockHeader, chainParams->GetConsensus()), 0x1B321F05); // Block #123457 has 0x1B321F05
 
     // test special rules for slow blocks on devnet/testnet
     gArgs.SoftSetBoolArg("-devnet", true);
@@ -126,7 +128,7 @@ BOOST_AUTO_TEST_CASE(get_next_work)
 
     // make sure normal rules apply
     blockHeader.nTime = 1408732505; // Block #123457
-    BOOST_CHECK_EQUAL(GetNextWorkRequired(&blockIndexLast, &blockHeader, chainParamsDev->GetConsensus()), 0x1b1441de); // Block #123457 has 0x1b1441de
+    BOOST_CHECK_EQUAL(GetNextWorkRequired(&blockIndexLast, &blockHeader, chainParamsDev->GetConsensus()), 0x1B321F05); // Block #123457 has 0x1B321F05
 
     // 10x higher target
     blockHeader.nTime = 1408733090; // Block #123457 (10m+1sec)
@@ -181,6 +183,8 @@ BOOST_AUTO_TEST_CASE(get_next_work)
 
 BOOST_AUTO_TEST_CASE(GetBlockProofEquivalentTime_test)
 {
+    std::cout << "Entering GetBlockProofEquivalentTime_test test" << std::endl;
+
     const auto chainParams = CreateChainParams(CBaseChainParams::MAIN);
     std::vector<CBlockIndex> blocks(10000);
     for (int i = 0; i < 10000; i++) {

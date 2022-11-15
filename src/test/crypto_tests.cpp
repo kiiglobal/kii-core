@@ -247,6 +247,8 @@ std::string LongTestString(void) {
 const std::string test1 = LongTestString();
 
 BOOST_AUTO_TEST_CASE(ripemd160_testvectors) {
+    std::cout << "Entering ripemd160_testvectors test" << std::endl;
+
     TestRIPEMD160("", "9c1185a5c5e9fc54612808977ee8f548b2258d31");
     TestRIPEMD160("abc", "8eb208f7e05d987a9b044a8e98c6b087f15a0bfc");
     TestRIPEMD160("message digest", "5d0689ef49d2fae572b881b123a85ffa21595f36");
@@ -263,6 +265,8 @@ BOOST_AUTO_TEST_CASE(ripemd160_testvectors) {
 }
 
 BOOST_AUTO_TEST_CASE(sha1_testvectors) {
+    std::cout << "Entering sha1_testvectors test" << std::endl;
+
     TestSHA1("", "da39a3ee5e6b4b0d3255bfef95601890afd80709");
     TestSHA1("abc", "a9993e364706816aba3e25717850c26c9cd0d89d");
     TestSHA1("message digest", "c12252ceda8be8994d5fa0290a47231c1d16aae3");
@@ -279,6 +283,8 @@ BOOST_AUTO_TEST_CASE(sha1_testvectors) {
 }
 
 BOOST_AUTO_TEST_CASE(sha256_testvectors) {
+    std::cout << "Entering sha256_testvectors test" << std::endl;
+
     TestSHA256("", "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855");
     TestSHA256("abc", "ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad");
     TestSHA256("message digest",
@@ -301,6 +307,8 @@ BOOST_AUTO_TEST_CASE(sha256_testvectors) {
 }
 
 BOOST_AUTO_TEST_CASE(sha512_testvectors) {
+    std::cout << "Entering sha512_testvectors test" << std::endl;
+
     TestSHA512("",
                "cf83e1357eefb8bdf1542850d66d8007d620e4050b5715dc83f4a921d36ce9ce"
                "47d0d13c5d85f2b0ff8318d2877eec2f63b931bd47417a81a538327af927da3e");
@@ -338,6 +346,8 @@ BOOST_AUTO_TEST_CASE(sha512_testvectors) {
 }
 
 BOOST_AUTO_TEST_CASE(hmac_sha256_testvectors) {
+    std::cout << "Entering hmac_sha256_testvectors test" << std::endl;
+
     // test cases 1, 2, 3, 4, 6 and 7 of RFC 4231
     TestHMACSHA256("0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b",
                    "4869205468657265",
@@ -391,6 +401,8 @@ BOOST_AUTO_TEST_CASE(hmac_sha256_testvectors) {
 }
 
 BOOST_AUTO_TEST_CASE(hmac_sha512_testvectors) {
+    std::cout << "Entering hmac_sha512_testvectors test" << std::endl;
+
     // test cases 1, 2, 3, 4, 6 and 7 of RFC 4231
     TestHMACSHA512("0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b",
                    "4869205468657265",
@@ -459,6 +471,8 @@ BOOST_AUTO_TEST_CASE(hmac_sha512_testvectors) {
 }
 
 BOOST_AUTO_TEST_CASE(aes_testvectors) {
+    std::cout << "Entering aes_testvectors test" << std::endl;
+
     // AES test vectors from FIPS 197.
     TestAES128("000102030405060708090a0b0c0d0e0f", "00112233445566778899aabbccddeeff", "69c4e0d86a7b0430d8cdb78070b4c55a");
     TestAES256("000102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f", "00112233445566778899aabbccddeeff", "8ea2b7ca516745bfeafc49904b496089");
@@ -475,6 +489,7 @@ BOOST_AUTO_TEST_CASE(aes_testvectors) {
 }
 
 BOOST_AUTO_TEST_CASE(aes_cbc_testvectors) {
+    std::cout << "Entering aes_cbc_testvectors test" << std::endl;
 
     // NIST AES CBC 128-bit encryption test-vectors
     TestAES128CBC("2b7e151628aed2a6abf7158809cf4f3c", "000102030405060708090A0B0C0D0E0F", false, \
@@ -526,6 +541,8 @@ BOOST_AUTO_TEST_CASE(aes_cbc_testvectors) {
 }
 
 BOOST_AUTO_TEST_CASE(pbkdf2_hmac_sha512_test) {
+    std::cout << "Entering pbkdf2_hmac_sha512_test test" << std::endl;
+
     // test vectors from
     // https://github.com/trezor/trezor-crypto/blob/87c920a7e747f7ed40b6ae841327868ab914435b/tests.c#L1936-L1957
     // https://stackoverflow.com/questions/15593184/pbkdf2-hmac-sha-512-test-vectors
@@ -551,6 +568,8 @@ BOOST_AUTO_TEST_CASE(pbkdf2_hmac_sha512_test) {
 
 BOOST_AUTO_TEST_CASE(chacha20_testvector)
 {
+    std::cout << "Entering chacha20_testvector test" << std::endl;
+
     // Test vector from RFC 7539
 
     // test encryption
@@ -593,6 +612,8 @@ BOOST_AUTO_TEST_CASE(chacha20_testvector)
 
 BOOST_AUTO_TEST_CASE(poly1305_testvector)
 {
+    std::cout << "Entering poly1305_testvector test" << std::endl;
+
     // RFC 7539, section 2.5.2.
     TestPoly1305("43727970746f6772617068696320466f72756d2052657365617263682047726f7570",
                  "85d6be7857556d337f4452fe42d506a80103808afb0db2fd4abff6af4149f51b",
@@ -755,6 +776,8 @@ static void TestChaCha20Poly1305AEAD(bool must_succeed, unsigned int expected_aa
 
 BOOST_AUTO_TEST_CASE(chacha20_poly1305_aead_testvector)
 {
+    std::cout << "Entering chacha20_poly1305_aead_testvector test" << std::endl;
+
     /* test chacha20poly1305@bitcoin AEAD */
 
     // must fail with no message
@@ -788,6 +811,8 @@ BOOST_AUTO_TEST_CASE(chacha20_poly1305_aead_testvector)
 
 BOOST_AUTO_TEST_CASE(countbits_tests)
 {
+    std::cout << "Entering countbits_tests test" << std::endl;
+
     FastRandomContext ctx;
     for (int i = 0; i <= 64; ++i) {
         if (i == 0) {
@@ -810,6 +835,8 @@ BOOST_AUTO_TEST_CASE(countbits_tests)
 
 BOOST_AUTO_TEST_CASE(sha256d64)
 {
+    std::cout << "Entering sha256d64 test" << std::endl;
+
     for (int i = 0; i <= 32; ++i) {
         unsigned char in[64 * 32];
         unsigned char out1[32 * 32], out2[32 * 32];

@@ -26,6 +26,8 @@ BOOST_FIXTURE_TEST_SUITE(sigopcount_tests, BasicTestingSetup)
 
 BOOST_AUTO_TEST_CASE(GetSigOpCount)
 {
+    std::cout << "Entering GetSigOpCount test" << std::endl;
+
     // Test CScript::GetSigOpCount()
     CScript s1;
     BOOST_CHECK_EQUAL(s1.GetSigOpCount(false), 0U);

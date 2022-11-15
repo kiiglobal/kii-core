@@ -164,6 +164,8 @@ static void RunOperators(const int64_t& num1, const int64_t& num2)
 
 BOOST_AUTO_TEST_CASE(creation)
 {
+    std::cout << "Entering creation test" << std::endl;
+
     for(size_t i = 0; i < sizeof(values) / sizeof(values[0]); ++i)
     {
         for(size_t j = 0; j < sizeof(offsets) / sizeof(offsets[0]); ++j)
@@ -177,6 +179,8 @@ BOOST_AUTO_TEST_CASE(creation)
 
 BOOST_AUTO_TEST_CASE(operators)
 {
+    std::cout << "Entering operators test" << std::endl;
+
     for(size_t i = 0; i < sizeof(values) / sizeof(values[0]); ++i)
     {
         for(size_t j = 0; j < sizeof(offsets) / sizeof(offsets[0]); ++j)

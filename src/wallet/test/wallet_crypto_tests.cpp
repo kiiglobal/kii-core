@@ -85,6 +85,8 @@ static void TestEncrypt(const CCrypter& crypt, const std::vector<unsigned char>&
 };
 
 BOOST_AUTO_TEST_CASE(passphrase) {
+    std::cout << "Entering passphrase test" << std::endl;
+
     // These are expensive.
 
     TestCrypter::TestPassphrase(ParseHex("0000deadbeef0000"), "test", 25000, \
@@ -101,6 +103,8 @@ BOOST_AUTO_TEST_CASE(passphrase) {
 }
 
 BOOST_AUTO_TEST_CASE(encrypt) {
+    std::cout << "Entering encrypt test" << std::endl;
+
     std::vector<unsigned char> vchSalt = ParseHex("0000deadbeef0000");
     BOOST_CHECK(vchSalt.size() == WALLET_CRYPTO_SALT_SIZE);
     CCrypter crypt;
@@ -116,6 +120,8 @@ BOOST_AUTO_TEST_CASE(encrypt) {
 }
 
 BOOST_AUTO_TEST_CASE(decrypt) {
+    std::cout << "Entering decrypt test" << std::endl;
+
     std::vector<unsigned char> vchSalt = ParseHex("0000deadbeef0000");
     BOOST_CHECK(vchSalt.size() == WALLET_CRYPTO_SALT_SIZE);
     CCrypter crypt;
@@ -137,6 +143,8 @@ BOOST_AUTO_TEST_CASE(decrypt) {
 }
 
 BOOST_AUTO_TEST_CASE(aes_256_cbc_testvectors) {
+    std::cout << "Entering aes_256_cbc_testvectors test" << std::endl;
+
     // NIST AES CBC 256-bit encryption test-vectors with padding enabled
     TestAES256CBC("603deb1015ca71be2b73aef0857d77811f352c073b6108d72d9810a30914dff4", \
                   "000102030405060708090A0B0C0D0E0F", "6bc1bee22e409f96e93d7e117393172a", \

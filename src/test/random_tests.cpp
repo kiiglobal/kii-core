@@ -15,11 +15,15 @@ BOOST_FIXTURE_TEST_SUITE(random_tests, BasicTestingSetup)
 
 BOOST_AUTO_TEST_CASE(osrandom_tests)
 {
+    std::cout << "Entering osrandom_tests test" << std::endl;
+
     BOOST_CHECK(Random_SanityCheck());
 }
 
 BOOST_AUTO_TEST_CASE(fastrandom_tests)
 {
+    std::cout << "Entering fastrandom_tests test" << std::endl;
+
     // Check that deterministic FastRandomContexts are deterministic
     g_mock_deterministic_tests = true;
     FastRandomContext ctx1(true);
@@ -57,6 +61,8 @@ BOOST_AUTO_TEST_CASE(fastrandom_tests)
 
 BOOST_AUTO_TEST_CASE(fastrandom_randbits)
 {
+    std::cout << "Entering fastrandom_randbits test" << std::endl;
+
     FastRandomContext ctx1;
     FastRandomContext ctx2;
     for (int bits = 0; bits < 63; ++bits) {
@@ -73,6 +79,8 @@ BOOST_AUTO_TEST_CASE(fastrandom_randbits)
 /** Does-it-compile test for compatibility with standard C++11 RNG interface. */
 BOOST_AUTO_TEST_CASE(stdrandom_test)
 {
+    std::cout << "Entering stdrandom_test test" << std::endl;
+
     FastRandomContext ctx;
     std::uniform_int_distribution<int> distribution(3, 9);
     for (int i = 0; i < 100; ++i) {
@@ -96,6 +104,8 @@ BOOST_AUTO_TEST_CASE(stdrandom_test)
 /** Test that Shuffle reaches every permutation with equal probability. */
 BOOST_AUTO_TEST_CASE(shuffle_stat_test)
 {
+    std::cout << "Entering shuffle_stat_test test" << std::endl;
+
     FastRandomContext ctx(true);
     uint32_t counts[5 * 5 * 5 * 5 * 5] = {0};
     for (int i = 0; i < 12000; ++i) {

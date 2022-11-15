@@ -14,6 +14,7 @@ BOOST_FIXTURE_TEST_SUITE(hash_tests, BasicTestingSetup)
 
 BOOST_AUTO_TEST_CASE(murmurhash3)
 {
+    std::cout << "Entering murmurhash3 test" << std::endl;
 
 #define T(expected, seed, data) BOOST_CHECK_EQUAL(MurmurHash3(seed, ParseHex(data)), expected)
 
@@ -79,6 +80,8 @@ uint64_t siphash_4_2_testvec[] = {
 
 BOOST_AUTO_TEST_CASE(siphash)
 {
+    std::cout << "Entering siphash test" << std::endl;
+
     CSipHasher hasher(0x0706050403020100ULL, 0x0F0E0D0C0B0A0908ULL);
     BOOST_CHECK_EQUAL(hasher.Finalize(),  0x726fdb47dd0e0e31ull);
     static const unsigned char t0[1] = {0};

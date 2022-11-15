@@ -37,6 +37,8 @@ sign_multisig(CScript scriptPubKey, std::vector<CKey> keys, CTransaction transac
 
 BOOST_AUTO_TEST_CASE(multisig_verify)
 {
+    std::cout << "Entering multisig_verify test" << std::endl;
+
     unsigned int flags = SCRIPT_VERIFY_P2SH | SCRIPT_VERIFY_STRICTENC;
 
     ScriptError err;
@@ -137,6 +139,8 @@ BOOST_AUTO_TEST_CASE(multisig_verify)
 
 BOOST_AUTO_TEST_CASE(multisig_IsStandard)
 {
+    std::cout << "Entering multisig_IsStandard test" << std::endl;
+
     CKey key[4];
     for (int i = 0; i < 4; i++)
         key[i].MakeNewKey(true);
@@ -173,6 +177,8 @@ BOOST_AUTO_TEST_CASE(multisig_IsStandard)
 
 BOOST_AUTO_TEST_CASE(multisig_Sign)
 {
+    std::cout << "Entering multisig_Sign test" << std::endl;
+
     // Test SignSignature() (and therefore the version of Solver() that signs transactions)
     CBasicKeyStore keystore;
     CKey key[4];

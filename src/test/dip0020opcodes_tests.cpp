@@ -88,6 +88,8 @@ static valtype NegativeValtype(const valtype& v)
 
 BOOST_AUTO_TEST_CASE(negative_valtype_test)
 {
+    std::cout << "Entering negative_valtype_test test" << std::endl;
+
     // Test zero values
     BOOST_CHECK(NegativeValtype({}) == valtype{});
     BOOST_CHECK(NegativeValtype({0x00}) == valtype{});
@@ -180,6 +182,8 @@ static void TestBitwiseOpcodes(const valtype& a, const valtype& b,
 
 BOOST_AUTO_TEST_CASE(bitwise_opcodes_test)
 {
+    std::cout << "Entering bitwise_opcodes_test test" << std::endl;
+
     // Check that empty ops works.
     RunTestForAllBitwiseOpcodes({}, {}, {}, {}, {});
 
@@ -444,6 +448,8 @@ static void CheckStringOp(const valtype& a, const valtype& b, const valtype& n)
 
 BOOST_AUTO_TEST_CASE(string_opcodes_test)
 {
+    std::cout << "Entering string_opcodes_test test" << std::endl;
+
     // Check for empty string.
     CheckStringOp({}, {}, {});
 
@@ -583,6 +589,8 @@ static void CheckNum2BinError(const stacktype& original_stack, ScriptError expec
 
 BOOST_AUTO_TEST_CASE(type_conversion_test)
 {
+    std::cout << "Entering type_conversion_test test" << std::endl;
+
     valtype empty;
     CheckTypeConversionOp(empty, empty);
 
@@ -739,6 +747,8 @@ static void CheckDivModError(const stacktype& original_stack,
 
 BOOST_AUTO_TEST_CASE(div_and_mod_opcode_tests)
 {
+    std::cout << "Entering div_and_mod_opcode_tests test" << std::endl;
+
     CheckDivModError({}, ScriptError::SCRIPT_ERR_INVALID_STACK_OPERATION);
     CheckDivModError({{}}, ScriptError::SCRIPT_ERR_INVALID_STACK_OPERATION);
 
@@ -788,6 +798,8 @@ BOOST_AUTO_TEST_CASE(div_and_mod_opcode_tests)
 
 BOOST_AUTO_TEST_CASE(check_dip0020_inclusion_in_standard_flags)
 {
+    std::cout << "Entering check_dip0020_inclusion_in_standard_flags test" << std::endl;
+
     BOOST_CHECK(STANDARD_SCRIPT_VERIFY_FLAGS &
                 SCRIPT_ENABLE_DIP0020_OPCODES);
 }

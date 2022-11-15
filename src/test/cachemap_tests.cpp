@@ -52,6 +52,8 @@ bool Compare(const CacheMap<int,int>& cmap1, const CacheMap<int,int>& cmap2)
 
 BOOST_AUTO_TEST_CASE(cachemap_test)
 {
+    std::cout << "Entering cachemap_test test" << std::endl;
+
     // create a CacheMap limited to 10 items
     CacheMap<int,int> cmapTest1(10);
 

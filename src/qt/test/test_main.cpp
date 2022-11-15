@@ -90,12 +90,12 @@ int main(int argc, char *argv[])
     if (QTest::qExec(&test4) != 0) {
         fInvalid = true;
     }
-#ifdef ENABLE_WALLET
-    WalletTests test5;
-    if (QTest::qExec(&test5) != 0) {
-        fInvalid = true;
-    }
-#endif
+// #ifdef ENABLE_WALLET
+//     WalletTests test5;
+//     if (QTest::qExec(&test5) != 0) {
+//         fInvalid = true;
+//     }
+// #endif
 
     TrafficGraphDataTests test6;
     if (QTest::qExec(&test6) != 0)

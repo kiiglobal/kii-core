@@ -66,6 +66,8 @@ std::string ArrayToString(const unsigned char A[], unsigned int width)
 
 BOOST_AUTO_TEST_CASE( basics ) // constructors, equality, inequality
 {
+    std::cout << "Entering basics test" << std::endl;
+
     BOOST_CHECK(1 == 0+1);
     // constructor arith_uint256(vector<char>):
     BOOST_CHECK(R1L.ToString() == ArrayToString(R1Array,32));
@@ -153,7 +155,10 @@ void shiftArrayLeft(unsigned char* to, const unsigned char* from, unsigned int a
     }
 }
 
-BOOST_AUTO_TEST_CASE( shifts ) { // "<<"  ">>"  "<<="  ">>="
+BOOST_AUTO_TEST_CASE( shifts ) // "<<"  ">>"  "<<="  ">>="
+{
+    std::cout << "Entering shifts test" << std::endl;
+
     unsigned char TmpArray[32];
     arith_uint256 TmpL;
     for (unsigned int i = 0; i < 256; ++i)
@@ -198,6 +203,8 @@ BOOST_AUTO_TEST_CASE( shifts ) { // "<<"  ">>"  "<<="  ">>="
 
 BOOST_AUTO_TEST_CASE( unaryOperators ) // !    ~    -
 {
+    std::cout << "Entering unaryOperators test" << std::endl;
+
     BOOST_CHECK(!ZeroL);
     BOOST_CHECK(!(!OneL));
     for (unsigned int i = 0; i < 256; ++i)
@@ -229,6 +236,8 @@ BOOST_AUTO_TEST_CASE( unaryOperators ) // !    ~    -
 
 BOOST_AUTO_TEST_CASE( bitwiseOperators )
 {
+    std::cout << "Entering bitwiseOperators test" << std::endl;
+
     unsigned char TmpArray[32];
 
     CHECKBITWISEOPERATOR(R1,R2,|)
@@ -273,6 +282,8 @@ BOOST_AUTO_TEST_CASE( bitwiseOperators )
 
 BOOST_AUTO_TEST_CASE( comparison ) // <= >= < >
 {
+    std::cout << "Entering comparison test" << std::endl;
+
     arith_uint256 TmpL;
     for (unsigned int i = 0; i < 256; ++i) {
         TmpL= OneL<< i;
@@ -287,6 +298,8 @@ BOOST_AUTO_TEST_CASE( comparison ) // <= >= < >
 
 BOOST_AUTO_TEST_CASE( plusMinus )
 {
+    std::cout << "Entering plusMinus test" << std::endl;
+
     arith_uint256 TmpL = 0;
     BOOST_CHECK(R1L+R2L == arith_uint256(R1LplusR2L));
     TmpL += R1L;
@@ -331,6 +344,8 @@ BOOST_AUTO_TEST_CASE( plusMinus )
 
 BOOST_AUTO_TEST_CASE( multiply )
 {
+    std::cout << "Entering multiply test" << std::endl;
+
     BOOST_CHECK((R1L * R1L).ToString() == "62a38c0486f01e45879d7910a7761bf30d5237e9873f9bff3642a732c4d84f10");
     BOOST_CHECK((R1L * R2L).ToString() == "de37805e9986996cfba76ff6ba51c008df851987d9dd323f0e5de07760529c40");
     BOOST_CHECK((R1L * ZeroL) == ZeroL);
@@ -352,6 +367,8 @@ BOOST_AUTO_TEST_CASE( multiply )
 
 BOOST_AUTO_TEST_CASE( divide )
 {
+    std::cout << "Entering divide test" << std::endl;
+
     arith_uint256 D1L("AD7133AC1977FA2B7");
     arith_uint256 D2L("ECD751716");
     BOOST_CHECK((R1L / D1L).ToString() == "00000000000000000b8ac01106981635d9ed112290f8895545a7654dde28fb3a");
@@ -376,6 +393,8 @@ bool almostEqual(double d1, double d2)
 
 BOOST_AUTO_TEST_CASE( methods ) // GetHex SetHex size() GetLow64 GetSerializeSize, Serialize, Unserialize
 {
+    std::cout << "Entering methods test" << std::endl;
+
     BOOST_CHECK(R1L.GetHex() == R1L.ToString());
     BOOST_CHECK(R2L.GetHex() == R2L.ToString());
     BOOST_CHECK(OneL.GetHex() == OneL.ToString());
@@ -411,6 +430,8 @@ BOOST_AUTO_TEST_CASE( methods ) // GetHex SetHex size() GetLow64 GetSerializeSiz
 
 BOOST_AUTO_TEST_CASE(bignum_SetCompact)
 {
+    std::cout << "Entering bignum_SetCompact test" << std::endl;
+
     arith_uint256 num;
     bool fNegative;
     bool fOverflow;
@@ -540,6 +561,8 @@ BOOST_AUTO_TEST_CASE(bignum_SetCompact)
 
 BOOST_AUTO_TEST_CASE( getmaxcoverage ) // some more tests just to get 100% coverage
 {
+    std::cout << "Entering getmaxcoverage test" << std::endl;
+
     // ~R1L give a base_uint<256>
     BOOST_CHECK((~~R1L >> 10) == (R1L >> 10));
     BOOST_CHECK((~~R1L << 10) == (R1L << 10));

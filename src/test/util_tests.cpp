@@ -25,6 +25,8 @@ BOOST_FIXTURE_TEST_SUITE(util_tests, BasicTestingSetup)
 
 BOOST_AUTO_TEST_CASE(util_criticalsection)
 {
+    std::cout << "Entering util_criticalsection test" << std::endl;
+
     CCriticalSection cs;
 
     do {
@@ -52,6 +54,8 @@ static const unsigned char ParseHex_expected[65] = {
 };
 BOOST_AUTO_TEST_CASE(util_ParseHex)
 {
+    std::cout << "Entering util_ParseHex test" << std::endl;
+
     std::vector<unsigned char> result;
     std::vector<unsigned char> expected(ParseHex_expected, ParseHex_expected + sizeof(ParseHex_expected));
     // Basic test vector
@@ -73,6 +77,8 @@ BOOST_AUTO_TEST_CASE(util_ParseHex)
 
 BOOST_AUTO_TEST_CASE(util_HexStr)
 {
+    std::cout << "Entering util_HexStr test" << std::endl;
+
     BOOST_CHECK_EQUAL(
         HexStr(ParseHex_expected, ParseHex_expected + sizeof(ParseHex_expected)),
         "04678afdb0fe5548271967f1a67130b7105cd6a828e03909a67962e0ea1f61deb649f6bc3f4cef38c4f35504e51ec112de5c384df7ba0b8d578a4c702b6bf11d5f");
@@ -161,6 +167,8 @@ BOOST_AUTO_TEST_CASE(util_HexStr)
 
 BOOST_AUTO_TEST_CASE(util_DateTimeStrFormat)
 {
+    std::cout << "Entering util_DateTimeStrFormat test" << std::endl;
+
     BOOST_CHECK_EQUAL(DateTimeStrFormat("%Y-%m-%d %H:%M:%S", 0), "1970-01-01 00:00:00");
     BOOST_CHECK_EQUAL(DateTimeStrFormat("%Y-%m-%d %H:%M:%S", 0x7FFFFFFF), "2038-01-19 03:14:07");
     BOOST_CHECK_EQUAL(DateTimeStrFormat("%Y-%m-%d %H:%M:%S", 1317425777), "2011-09-30 23:36:17");
@@ -172,16 +180,22 @@ BOOST_AUTO_TEST_CASE(util_DateTimeStrFormat)
 
 BOOST_AUTO_TEST_CASE(util_FormatISO8601DateTime)
 {
+    std::cout << "Entering util_FormatISO8601DateTime test" << std::endl;
+
     BOOST_CHECK_EQUAL(FormatISO8601DateTime(1317425777), "2011-09-30T23:36:17Z");
 }
 
 BOOST_AUTO_TEST_CASE(util_FormatISO8601Date)
 {
+    std::cout << "Entering util_FormatISO8601Date test" << std::endl;
+
     BOOST_CHECK_EQUAL(FormatISO8601Date(1317425777), "2011-09-30");
 }
 
 BOOST_AUTO_TEST_CASE(util_FormatISO8601Time)
 {
+    std::cout << "Entering util_FormatISO8601Time test" << std::endl;
+
     BOOST_CHECK_EQUAL(FormatISO8601Time(1317425777), "23:36:17Z");
 }
 
@@ -208,6 +222,8 @@ struct TestArgsManager : public ArgsManager
 
 BOOST_AUTO_TEST_CASE(util_ParseParameters)
 {
+    std::cout << "Entering util_ParseParameters test" << std::endl;
+
     TestArgsManager testArgs;
     const char *argv_test[] = {"-ignored", "-a", "-b", "-ccc=argument", "-ccc=multiple", "f", "-d=e"};
 
@@ -237,6 +253,8 @@ BOOST_AUTO_TEST_CASE(util_ParseParameters)
 
 BOOST_AUTO_TEST_CASE(util_GetBoolArg)
 {
+    std::cout << "Entering util_GetBoolArg test" << std::endl;
+
     TestArgsManager testArgs;
     const char *argv_test[] = {
         "ignored", "-a", "-nob", "-c=0", "-d=1", "-e=false", "-f=true"};
@@ -268,6 +286,8 @@ BOOST_AUTO_TEST_CASE(util_GetBoolArg)
 
 BOOST_AUTO_TEST_CASE(util_GetBoolArgEdgeCases)
 {
+    std::cout << "Entering util_GetBoolArgEdgeCases test" << std::endl;
+
     // Test some awful edge cases that hopefully no user will ever exercise.
     TestArgsManager testArgs;
 
@@ -317,6 +337,8 @@ BOOST_AUTO_TEST_CASE(util_GetBoolArgEdgeCases)
 
 BOOST_AUTO_TEST_CASE(util_ReadConfigStream)
 {
+    std::cout << "Entering util_ReadConfigStream test" << std::endl;
+
     const char *str_config =
        "a=\n"
        "b=1\n"
@@ -498,6 +520,8 @@ BOOST_AUTO_TEST_CASE(util_ReadConfigStream)
 
 BOOST_AUTO_TEST_CASE(util_GetArg)
 {
+    std::cout << "Entering util_GetArg test" << std::endl;
+
     TestArgsManager testArgs;
     testArgs.GetOverrideArgs().clear();
     testArgs.GetOverrideArgs()["strtest1"] = {"string..."};
@@ -536,6 +560,8 @@ BOOST_AUTO_TEST_CASE(util_GetArg)
 
 BOOST_AUTO_TEST_CASE(util_GetChainName)
 {
+    std::cout << "Entering util_GetChainName test" << std::endl;
+
     TestArgsManager test_args;
 
     const char* argv_testnet[] = {"cmd", "-testnet"};
@@ -609,6 +635,8 @@ BOOST_AUTO_TEST_CASE(util_GetChainName)
 
 BOOST_AUTO_TEST_CASE(util_FormatMoney)
 {
+    std::cout << "Entering util_FormatMoney test" << std::endl;
+
     BOOST_CHECK_EQUAL(FormatMoney(0), "0.00");
     BOOST_CHECK_EQUAL(FormatMoney((COIN/10000)*123456789), "12345.6789");
     BOOST_CHECK_EQUAL(FormatMoney(-COIN), "-1.00");
@@ -634,6 +662,8 @@ BOOST_AUTO_TEST_CASE(util_FormatMoney)
 
 BOOST_AUTO_TEST_CASE(util_ParseMoney)
 {
+    std::cout << "Entering util_ParseMoney test" << std::endl;
+
     CAmount ret = 0;
     BOOST_CHECK(ParseMoney("0.0", ret));
     BOOST_CHECK_EQUAL(ret, 0);
@@ -687,6 +717,8 @@ BOOST_AUTO_TEST_CASE(util_ParseMoney)
 
 BOOST_AUTO_TEST_CASE(util_IsHex)
 {
+    std::cout << "Entering util_IsHex test" << std::endl;
+
     BOOST_CHECK(IsHex("00"));
     BOOST_CHECK(IsHex("00112233445566778899aabbccddeeffAABBCCDDEEFF"));
     BOOST_CHECK(IsHex("ff"));
@@ -702,6 +734,8 @@ BOOST_AUTO_TEST_CASE(util_IsHex)
 
 BOOST_AUTO_TEST_CASE(util_IsHexNumber)
 {
+    std::cout << "Entering util_IsHexNumber test" << std::endl;
+
     BOOST_CHECK(IsHexNumber("0x0"));
     BOOST_CHECK(IsHexNumber("0"));
     BOOST_CHECK(IsHexNumber("0x10"));
@@ -727,6 +761,8 @@ BOOST_AUTO_TEST_CASE(util_IsHexNumber)
 
 BOOST_AUTO_TEST_CASE(util_seed_insecure_rand)
 {
+    std::cout << "Entering util_seed_insecure_rand test" << std::endl;
+
     SeedInsecureRand(true);
     for (int mod=2;mod<11;mod++)
     {
@@ -752,6 +788,8 @@ BOOST_AUTO_TEST_CASE(util_seed_insecure_rand)
 
 BOOST_AUTO_TEST_CASE(util_TimingResistantEqual)
 {
+    std::cout << "Entering util_TimingResistantEqual test" << std::endl;
+
     BOOST_CHECK(TimingResistantEqual(std::string(""), std::string("")));
     BOOST_CHECK(!TimingResistantEqual(std::string("abc"), std::string("")));
     BOOST_CHECK(!TimingResistantEqual(std::string(""), std::string("abc")));
@@ -767,6 +805,8 @@ BOOST_AUTO_TEST_CASE(util_TimingResistantEqual)
 #define E "check_postfix"
 BOOST_AUTO_TEST_CASE(strprintf_numbers)
 {
+    std::cout << "Entering strprintf_numbers test" << std::endl;
+
     int64_t s64t = -9223372036854775807LL; /* signed 64 bit test value */
     uint64_t u64t = 18446744073709551615ULL; /* unsigned 64 bit test value */
     BOOST_CHECK(strprintf("%s %d %s", B, s64t, E) == B" -9223372036854775807 " E);
@@ -793,11 +833,15 @@ BOOST_AUTO_TEST_CASE(strprintf_numbers)
  */
 BOOST_AUTO_TEST_CASE(gettime)
 {
+    std::cout << "Entering gettime test" << std::endl;
+
     BOOST_CHECK((GetTime() & ~0xFFFFFFFFLL) == 0);
 }
 
 BOOST_AUTO_TEST_CASE(util_time_GetTime)
 {
+    std::cout << "Entering util_time_GetTime test" << std::endl;
+
     SetMockTime(111);
     // Check that mock time does not change after a sleep
     for (const auto& num_sleep : {0, 1}) {
@@ -819,6 +863,8 @@ BOOST_AUTO_TEST_CASE(util_time_GetTime)
 
 BOOST_AUTO_TEST_CASE(test_IsDigit)
 {
+    std::cout << "Entering test_IsDigit test" << std::endl;
+
     BOOST_CHECK_EQUAL(IsDigit('0'), true);
     BOOST_CHECK_EQUAL(IsDigit('1'), true);
     BOOST_CHECK_EQUAL(IsDigit('8'), true);
@@ -834,6 +880,8 @@ BOOST_AUTO_TEST_CASE(test_IsDigit)
 
 BOOST_AUTO_TEST_CASE(test_ParseInt32)
 {
+    std::cout << "Entering test_ParseInt32 test" << std::endl;
+
     int32_t n;
     // Valid values
     BOOST_CHECK(ParseInt32("1234", nullptr));
@@ -863,6 +911,8 @@ BOOST_AUTO_TEST_CASE(test_ParseInt32)
 
 BOOST_AUTO_TEST_CASE(test_ParseInt64)
 {
+    std::cout << "Entering test_ParseInt64 test" << std::endl;
+
     int64_t n;
     // Valid values
     BOOST_CHECK(ParseInt64("1234", nullptr));
@@ -893,6 +943,8 @@ BOOST_AUTO_TEST_CASE(test_ParseInt64)
 
 BOOST_AUTO_TEST_CASE(test_ParseUInt32)
 {
+    std::cout << "Entering test_ParseUInt32 test" << std::endl;
+
     uint32_t n;
     // Valid values
     BOOST_CHECK(ParseUInt32("1234", nullptr));
@@ -924,6 +976,8 @@ BOOST_AUTO_TEST_CASE(test_ParseUInt32)
 
 BOOST_AUTO_TEST_CASE(test_ParseUInt64)
 {
+    std::cout << "Entering test_ParseUInt64 test" << std::endl;
+
     uint64_t n;
     // Valid values
     BOOST_CHECK(ParseUInt64("1234", nullptr));
@@ -956,6 +1010,8 @@ BOOST_AUTO_TEST_CASE(test_ParseUInt64)
 
 BOOST_AUTO_TEST_CASE(test_ParseDouble)
 {
+    std::cout << "Entering test_ParseDouble test" << std::endl;
+
     double n;
     // Valid values
     BOOST_CHECK(ParseDouble("1234", nullptr));
@@ -984,6 +1040,8 @@ BOOST_AUTO_TEST_CASE(test_ParseDouble)
 
 BOOST_AUTO_TEST_CASE(test_FormatParagraph)
 {
+    std::cout << "Entering test_FormatParagraph test" << std::endl;
+
     BOOST_CHECK_EQUAL(FormatParagraph("", 79, 0), "");
     BOOST_CHECK_EQUAL(FormatParagraph("test", 79, 0), "test");
     BOOST_CHECK_EQUAL(FormatParagraph(" test", 79, 0), " test");
@@ -1011,6 +1069,8 @@ BOOST_AUTO_TEST_CASE(test_FormatParagraph)
 
 BOOST_AUTO_TEST_CASE(test_FormatSubVersion)
 {
+    std::cout << "Entering test_FormatSubVersion test" << std::endl;
+
     std::vector<std::string> comments;
     comments.push_back(std::string("comment1"));
     std::vector<std::string> comments2;
@@ -1023,6 +1083,8 @@ BOOST_AUTO_TEST_CASE(test_FormatSubVersion)
 
 BOOST_AUTO_TEST_CASE(test_ParseFixedPoint)
 {
+    std::cout << "Entering test_ParseFixedPoint test" << std::endl;
+
     int64_t amount = 0;
     BOOST_CHECK(ParseFixedPoint("0", 8, &amount));
     BOOST_CHECK_EQUAL(amount, 0LL);
@@ -1125,6 +1187,8 @@ static void TestOtherProcess(fs::path dirname, std::string lockname, int fd)
 
 BOOST_AUTO_TEST_CASE(test_LockDirectory)
 {
+    std::cout << "Entering test_LockDirectory test" << std::endl;
+
     fs::path dirname = SetDataDir("test_LockDirectory") / fs::unique_path();
     const std::string lockname = ".lock";
 #ifndef WIN32
@@ -1213,6 +1277,8 @@ BOOST_AUTO_TEST_CASE(test_LockDirectory)
 
 BOOST_AUTO_TEST_CASE(test_DirIsWritable)
 {
+    std::cout << "Entering test_DirIsWritable test" << std::endl;
+
     // Should be able to write to the data dir.
     fs::path tmpdirname = SetDataDir("test_DirIsWritable");
     BOOST_CHECK_EQUAL(DirIsWritable(tmpdirname), true);

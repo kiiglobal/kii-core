@@ -25,6 +25,8 @@ BOOST_FIXTURE_TEST_SUITE(dbwrapper_tests, BasicTestingSetup)
 
 BOOST_AUTO_TEST_CASE(dbwrapper)
 {
+    std::cout << "Entering dbwrapper test" << std::endl;
+
     // Perform tests both obfuscated and non-obfuscated.
     for (bool obfuscate : {false, true}) {
         fs::path ph = SetDataDir(std::string("dbwrapper").append(obfuscate ? "_true" : "_false"));
@@ -45,6 +47,8 @@ BOOST_AUTO_TEST_CASE(dbwrapper)
 // Test batch operations
 BOOST_AUTO_TEST_CASE(dbwrapper_batch)
 {
+    std::cout << "Entering dbwrapper_batch test" << std::endl;
+
     // Perform tests both obfuscated and non-obfuscated.
     for (bool obfuscate : {false, true}) {
         fs::path ph = SetDataDir(std::string("dbwrapper_batch").append(obfuscate ? "_true" : "_false"));
@@ -81,6 +85,8 @@ BOOST_AUTO_TEST_CASE(dbwrapper_batch)
 
 BOOST_AUTO_TEST_CASE(dbwrapper_iterator)
 {
+    std::cout << "Entering dbwrapper_iterator test" << std::endl;
+
     // Perform tests both obfuscated and non-obfuscated.
     for (bool obfuscate : {false, true}) {
         fs::path ph = SetDataDir(std::string("dbwrapper_iterator").append(obfuscate ? "_true" : "_false"));
@@ -122,6 +128,8 @@ BOOST_AUTO_TEST_CASE(dbwrapper_iterator)
 // Test that we do not obfuscation if there is existing data.
 BOOST_AUTO_TEST_CASE(existing_data_no_obfuscate)
 {
+    std::cout << "Entering existing_data_no_obfuscate test" << std::endl;
+
     // We're going to share this fs::path between two wrappers
     fs::path ph = SetDataDir("existing_data_no_obfuscate");
     create_directories(ph);
@@ -163,6 +171,8 @@ BOOST_AUTO_TEST_CASE(existing_data_no_obfuscate)
 // Ensure that we start obfuscating during a reindex.
 BOOST_AUTO_TEST_CASE(existing_data_reindex)
 {
+    std::cout << "Entering existing_data_reindex test" << std::endl;
+
     // We're going to share this fs::path between two wrappers
     fs::path ph = SetDataDir("existing_data_reindex");
     create_directories(ph);
@@ -199,6 +209,8 @@ BOOST_AUTO_TEST_CASE(existing_data_reindex)
 
 BOOST_AUTO_TEST_CASE(iterator_ordering)
 {
+    std::cout << "Entering iterator_ordering test" << std::endl;
+
     fs::path ph = SetDataDir("iterator_ordering");
     CDBWrapper dbw(ph, (1 << 20), true, false, false);
     for (int x=0x00; x<256; ++x) {
@@ -275,6 +287,8 @@ struct StringContentsSerializer {
 
 BOOST_AUTO_TEST_CASE(iterator_string_ordering)
 {
+    std::cout << "Entering iterator_string_ordering test" << std::endl;
+
     char buf[10];
 
     fs::path ph = SetDataDir("iterator_string_ordering");

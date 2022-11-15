@@ -43,6 +43,8 @@ void insecure_GetRandHash(uint256& t)
  */
 BOOST_AUTO_TEST_CASE(test_cuckoocache_no_fakes)
 {
+    std::cout << "Entering test_cuckoocache_no_fakes test" << std::endl;
+
     local_rand_ctx = FastRandomContext(true);
     CuckooCache::cache<uint256, SignatureCacheHasher> cc{};
     size_t megabytes = 4;
@@ -117,6 +119,8 @@ double normalize_hit_rate(double hits, double load)
 /** Check the hit rate on loads ranging from 0.1 to 1.6 */
 BOOST_AUTO_TEST_CASE(cuckoocache_hit_rate_ok)
 {
+    std::cout << "Entering cuckoocache_hit_rate_ok test" << std::endl;
+
     /** Arbitrarily selected Hit Rate threshold that happens to work for this test
      * as a lower bound on performance.
      */
@@ -190,6 +194,8 @@ void test_cache_erase(size_t megabytes)
 
 BOOST_AUTO_TEST_CASE(cuckoocache_erase_ok)
 {
+    std::cout << "Entering cuckoocache_erase_ok test" << std::endl;
+
     size_t megabytes = 4;
     test_cache_erase<CuckooCache::cache<uint256, SignatureCacheHasher>>(megabytes);
 }
@@ -277,6 +283,8 @@ void test_cache_erase_parallel(size_t megabytes)
 }
 BOOST_AUTO_TEST_CASE(cuckoocache_erase_parallel_ok)
 {
+    std::cout << "Entering cuckoocache_erase_parallel_ok test" << std::endl;
+
     size_t megabytes = 4;
     test_cache_erase_parallel<CuckooCache::cache<uint256, SignatureCacheHasher>>(megabytes);
 }
@@ -374,6 +382,8 @@ void test_cache_generations()
 }
 BOOST_AUTO_TEST_CASE(cuckoocache_generations)
 {
+    std::cout << "Entering cuckoocache_generations test" << std::endl;
+
     test_cache_generations<CuckooCache::cache<uint256, SignatureCacheHasher>>();
 }
 

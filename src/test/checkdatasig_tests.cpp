@@ -82,6 +82,8 @@ static void CheckErrorForAllFlags(const stacktype& original_stack,
 
 BOOST_AUTO_TEST_CASE(checkdatasig_test)
 {
+    std::cout << "Entering checkdatasig_test test" << std::endl;
+
     // Empty stack.
     CheckErrorForAllFlags({}, CScript() << OP_CHECKDATASIG,
                           ScriptError::SCRIPT_ERR_INVALID_STACK_OPERATION);
