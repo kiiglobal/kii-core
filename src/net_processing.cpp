@@ -4139,6 +4139,9 @@ bool PeerLogicValidation::SendMessages(CNode* pto)
                     const uint256& hash = txinfo.tx->GetHash();
                     pto->setInventoryTxToSend.erase(hash);
                     if (pto->pfilter && !pto->pfilter->IsRelevantAndUpdate(*txinfo.tx)) continue;
+                    
+                    int nInvType = MSG_TX;
+                    queueAndMaybePushInv(CInv(nInvType, hash));
 
 
                     uint256 islockHash;
@@ -4205,6 +4208,8 @@ bool PeerLogicValidation::SendMessages(CNode* pto)
                             vRelayExpiration.push_back(std::make_pair(nNow + 15 * 60 * 1000000, ret.first));
                         }
                     }
+                    int nInvType = MSG_TX;
+                    queueAndMaybePushInv(CInv(nInvType, hash));
                 }
             }
 
