@@ -391,9 +391,6 @@
      <property name="sortingEnabled">
       <bool>false</bool>
      </property>
-     <property name="columnCount">
-      <number>7</number>
-     </property>
      <attribute name="headerShowSortIndicator" stdset="0">
       <bool>true</bool>
      </attribute>
@@ -418,11 +415,6 @@
      <column>
       <property name="text">
        <string>Received with address</string>
-      </property>
-     </column>
-     <column>
-      <property name="text">
-       <string>Mixing Rounds</string>
       </property>
      </column>
      <column>
@@ -468,3 +460,4 @@
  <resources/>
  <connections/>
 </ui>
+
