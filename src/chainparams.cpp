@@ -75,7 +75,7 @@ static CBlock CreateDevNetGenesisBlock(const uint256 &prevBlockHash, const std::
  */
 static CBlock CreateGenesisBlock(uint32_t nTime, uint32_t nNonce, uint32_t nBits, int32_t nVersion, const CAmount& genesisReward)
 {
-    const char* pszTimestamp = "MAY22 Evereything all the time JCC LSF DA AC JAC";
+    const char* pszTimestamp = "DEC01 Evereything all the time JCC LSF DA AC JAC";
     const CScript genesisOutputScript = CScript() << ParseHex("04418ffccd8e9fccf614b18ab513d7c809e2e4993717c582f9baf6c543a5f7e0b9fbdc0a76744220fcc13b356f07dbdb2e4cfa6e2b1036828b6f1e769b03975551") << OP_CHECKSIG;
     return CreateGenesisBlock(pszTimestamp, genesisOutputScript, nTime, nNonce, nBits, nVersion, genesisReward);
 }
@@ -420,7 +420,7 @@ public:
         consensus.nMinimumChainWork = uint256S("0x0000000000000000000000000000000000000000000000000000000000100010"); 
 
         // By default assume that the signatures in ancestors of this block are valid.
-        consensus.defaultAssumeValid = uint256S("0x0000010500290eadc8d44e363107e2dbc17122823be632f2e060fa0be0548f3b"); 
+        consensus.defaultAssumeValid = uint256S("0x000007fd13778ad1e5f3776e7691dc264fbdf71e9e4c9734416c524ac537b67d"); 
 
         /**
          * The message start string is designed to be unlikely to occur in normal data.
@@ -434,7 +434,7 @@ public:
         nDefaultPort = 5816;
         nPruneAfterHeight = 100000;
 
-        genesis = CreateGenesisBlock(1651204581, 5625448, 0x1e0ffff0, 1, 300 * COIN);
+        genesis = CreateGenesisBlock(1669903409, 5900259, 0x1e0ffff0, 1, 300 * COIN);
         consensus.hashGenesisBlock = genesis.GetHash();
         // calculate main genesis block
         //consensus.hashGenesisBlock = uint256S("0x00");
@@ -457,8 +457,9 @@ public:
             std::cout << "blockhash: " << genesis.GetHash().ToString().c_str() << "\n";
             std::cout << "merklehash: " << genesis.hashMerkleRoot.ToString().c_str() << "\n";
         }
-        assert(consensus.hashGenesisBlock == uint256S("0x0000010500290eadc8d44e363107e2dbc17122823be632f2e060fa0be0548f3b"));
-        assert(genesis.hashMerkleRoot == uint256S("0xf73eca724ceb30c4cbf3e6f3fc8a020dd54aeff706794c0c51b451c78ef0dabd"));
+
+        assert(consensus.hashGenesisBlock == uint256S("0x000007fd13778ad1e5f3776e7691dc264fbdf71e9e4c9734416c524ac537b67d"));
+        assert(genesis.hashMerkleRoot == uint256S("0xf9ae43669bdefce895813bf06ccd8f9afb108a021599094b77b62fab45d3a5df"));
 
         // Note that of those which support the service bits prefix, most only support a subset of
         // possible options.
@@ -508,7 +509,7 @@ public:
 
         checkpointData = {
             {
-                {0, uint256S("0x0000010500290eadc8d44e363107e2dbc17122823be632f2e060fa0be0548f3b")},
+                {0, uint256S("0x000007fd13778ad1e5f3776e7691dc264fbdf71e9e4c9734416c524ac537b67d")},
             }
         };
 
@@ -620,7 +621,7 @@ public:
         consensus.nMinimumChainWork = uint256S("0x0000000000000000000000000000000000000000000000000000000000100010"); 
 
         // By default assume that the signatures in ancestors of this block are valid.
-        consensus.defaultAssumeValid = uint256S("0x00000281b94af8ee1d1840bbc454ee1f5c6aeffb5357fe5ec8b3aaee5f67f993"); 
+        consensus.defaultAssumeValid = uint256S("0x00000adab341437ea90de2e7e536cd7c83540f6c4374d28a7a94558bf8575659"); 
 
         pchMessageStart[0] = 0xb6;
         pchMessageStart[1] = 0xa4;
@@ -629,7 +630,7 @@ public:
         nDefaultPort = 15816;
         nPruneAfterHeight = 1000;
 
-        genesis = CreateGenesisBlock(1651204586UL, 1561120UL, 0x1e0ffff0, 1, 300 * COIN);
+        genesis = CreateGenesisBlock(1669903414UL, 2242033UL, 0x1e0ffff0, 1, 300 * COIN);
         consensus.hashGenesisBlock = genesis.GetHash();
         // calculate testnet genesis block
         //consensus.hashGenesisBlock = uint256S("0x00");
@@ -652,8 +653,9 @@ public:
             std::cout << "blockhash: " << genesis.GetHash().ToString().c_str() << "\n";
             std::cout << "merklehash: " << genesis.hashMerkleRoot.ToString().c_str() << "\n";
         }
-        assert(consensus.hashGenesisBlock == uint256S("0x00000281b94af8ee1d1840bbc454ee1f5c6aeffb5357fe5ec8b3aaee5f67f993"));
-        assert(genesis.hashMerkleRoot == uint256S("0xf73eca724ceb30c4cbf3e6f3fc8a020dd54aeff706794c0c51b451c78ef0dabd"));
+
+        assert(consensus.hashGenesisBlock == uint256S("0x00000adab341437ea90de2e7e536cd7c83540f6c4374d28a7a94558bf8575659"));
+        assert(genesis.hashMerkleRoot == uint256S("0xf9ae43669bdefce895813bf06ccd8f9afb108a021599094b77b62fab45d3a5df"));
 
         vFixedSeeds.clear();
         vFixedSeeds = std::vector<SeedSpec6>(pnSeed6_test, pnSeed6_test + ARRAYLEN(pnSeed6_test));
@@ -700,7 +702,7 @@ public:
 
         checkpointData = {
             {
-                {0, uint256S("0x00000281b94af8ee1d1840bbc454ee1f5c6aeffb5357fe5ec8b3aaee5f67f993")},
+                {0, uint256S("0x00000adab341437ea90de2e7e536cd7c83540f6c4374d28a7a94558bf8575659")},
             }
         };
 
@@ -821,7 +823,7 @@ public:
         nDefaultPort = 19799;
         nPruneAfterHeight = 1000;
 
-        genesis = CreateGenesisBlock(1651204591, 1, 0x207fffff, 1, 300 * COIN);
+        genesis = CreateGenesisBlock(1669903419, 4, 0x207fffff, 1, 300 * COIN);
         consensus.hashGenesisBlock = genesis.GetHash();
         // calculate regression genesis block
         //consensus.hashGenesisBlock = uint256S("0x00");
@@ -844,8 +846,9 @@ public:
             std::cout << "blockhash: " << genesis.GetHash().ToString().c_str() << "\n";
             std::cout << "merklehash: "  << genesis.hashMerkleRoot.ToString().c_str() << "\n";
         }
-        assert(consensus.hashGenesisBlock == uint256S("0x0536eac9c3033db04a76022f36e0a30b2f8017a13d48a93b39e4db910f84f05b"));
-        assert(genesis.hashMerkleRoot == uint256S("0xf73eca724ceb30c4cbf3e6f3fc8a020dd54aeff706794c0c51b451c78ef0dabd"));
+
+        assert(consensus.hashGenesisBlock == uint256S("0x4169d98838f907678f71d0d7c251419b53c60be5bbebfe30f76e5595ebd8618d"));
+        assert(genesis.hashMerkleRoot == uint256S("0xf9ae43669bdefce895813bf06ccd8f9afb108a021599094b77b62fab45d3a5df"));
 
         if (!fHelpOnly) {
             devnetGenesis = FindDevNetGenesisBlock(genesis, 300 * COIN);
@@ -896,7 +899,7 @@ public:
 
         checkpointData = (CCheckpointData) {
             {
-                { 0, uint256S("0x0536eac9c3033db04a76022f36e0a30b2f8017a13d48a93b39e4db910f84f05b")},
+                { 0, uint256S("0x4169d98838f907678f71d0d7c251419b53c60be5bbebfe30f76e5595ebd8618d")},
                 { 1, devnetGenesis.GetHash() },
             }
         };
@@ -995,7 +998,7 @@ public:
         nDefaultPort = 19899;
         nPruneAfterHeight = 1000;
 
-        genesis = CreateGenesisBlock(1651204591, 1, 0x207fffff, 1, 300 * COIN);
+        genesis = CreateGenesisBlock(1669903419, 4, 0x207fffff, 1, 300 * COIN);
         consensus.hashGenesisBlock = genesis.GetHash();
         // calculate regression genesis block
         //consensus.hashGenesisBlock = uint256S("0x00");
@@ -1018,8 +1021,9 @@ public:
             std::cout << "blockhash: " << genesis.GetHash().ToString().c_str() << "\n";
             std::cout << "merklehash: "  << genesis.hashMerkleRoot.ToString().c_str() << "\n";
         }
-        assert(consensus.hashGenesisBlock == uint256S("0x0536eac9c3033db04a76022f36e0a30b2f8017a13d48a93b39e4db910f84f05b"));
-        assert(genesis.hashMerkleRoot == uint256S("0xf73eca724ceb30c4cbf3e6f3fc8a020dd54aeff706794c0c51b451c78ef0dabd"));
+
+        assert(consensus.hashGenesisBlock == uint256S("0x4169d98838f907678f71d0d7c251419b53c60be5bbebfe30f76e5595ebd8618d"));
+        assert(genesis.hashMerkleRoot == uint256S("0xf9ae43669bdefce895813bf06ccd8f9afb108a021599094b77b62fab45d3a5df"));
 
         vFixedSeeds.clear(); //!< Regtest mode doesn't have any fixed seeds.
         vSeeds.clear();      //!< Regtest mode doesn't have any DNS seeds.
@@ -1044,7 +1048,7 @@ public:
 
         checkpointData = {
             {
-                {0, uint256S("0x0536eac9c3033db04a76022f36e0a30b2f8017a13d48a93b39e4db910f84f05b")},
+                {0, uint256S("0x4169d98838f907678f71d0d7c251419b53c60be5bbebfe30f76e5595ebd8618d")},
             }
         };
 
