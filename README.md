@@ -15,8 +15,7 @@ the Kii Core software, see https://kii.global.
 About this repository
 -------------
 
-The main net of this coin will be available after launch on Q1 of 2023.
-This repository is only available for the test net.
+The main net of this coin will be available after launch on Q1 of 2023. This repository is available at this time for developers and users that want to test the system. Repo will be updated at launch time with updated code that will work with main net. Please check regularly here or on any official KII channel tor updated information. Our official website is http://kii.global
 
 
 License
