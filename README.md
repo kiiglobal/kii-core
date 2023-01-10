@@ -12,6 +12,11 @@ Kii is a new cryptocurrency built on our new revolutionary blockchain that allow
 For more information, as well as an immediately useable, binary version of
 the Kii Core software, see https://kii.global.
 
+About this repository
+-------------
+
+The main net of this coin will be available after launch on Q1 of 2023. This repository is available at this time for developers and users that want to test the system. Repo will be updated at launch time with updated code that will work with main net. Please check regularly here or on any official KII channel for updated information. Our official website is http://kii.global
+
 
 License
 -------
@@ -66,3 +71,4 @@ Translations are periodically pulled from Transifex and merged into the git repo
 pull from Transifex would automatically overwrite them again.
 
 Translators should also follow the [forum](https://kii.global/).
+
